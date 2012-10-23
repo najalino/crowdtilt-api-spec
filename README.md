@@ -1408,6 +1408,7 @@ The purpose of the `score` field is to provide support for voting on comments.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null,
             "metadata" : { },
             "creation_date" : "2012-10-01T00:00:00Z",
@@ -1430,6 +1431,7 @@ The purpose of the `score` field is to provide support for voting on comments.
                 "user_id' : "USR123",
                 "title" : "Optional Title",
                 "body" : "Comment Body",
+                "score" : 1,
                 "parent_id" : null,
                 "metadata" : { },
                 "creation_date" : "2012-10-01T00:00:00Z",
@@ -1455,6 +1457,7 @@ The purpose of the `score` field is to provide support for voting on comments.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null,
             "metadata" : { },
             "creation_date" : "2012-10-01T00:00:00Z",
@@ -1468,8 +1471,7 @@ The purpose of the `score` field is to provide support for voting on comments.
 
 ### Update campaign comment
 
-Currently you can only alter the metadata of a comment object once it has been
-created.
+Currently you can only alter the score and the metadata of a comment.
 
     PUT /campaigns/:id/comments/:id
 
@@ -1477,6 +1479,7 @@ created.
 
     {
         "comment" : {
+            "score" : 2,
             "metadata" : {
                 "key" : "value",
             }
@@ -1491,6 +1494,7 @@ created.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 2,
             "parent_id" : null,
             "metadata" : {
                 "key" : "value",
