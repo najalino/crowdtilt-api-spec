@@ -1378,10 +1378,15 @@ refund subresource.
 
 ### Create Campaign Comment
 
-Simply post a `body`, `user_id`, and optional `parent_id`, `title` fields to
-`/campaigns/:id/comments`. The `parent_id` field is used for comment
-threading, to specify the parent comment that this new comment should
-fall beneath.
+To create a comment, POST to `/campaigns/:id/comments`.
+The only required fields are the `user_id` of the comment author
+and the `body` of the comment.
+The `title`, `parent_id`, and `score` fields are optional.
+The `parent_id` is the id of the parent of this comment, i.e.,
+the comment that this comment is a reply to.
+This only matters if you want to support nested comments.
+You may provide a `parent_id` of null for top-level comments.
+The purpose of the `score` field is to provide support for voting on comments.
 
     POST /campaigns/:id/comments
 
@@ -1390,6 +1395,7 @@ fall beneath.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null
         }
     }
@@ -1402,6 +1408,7 @@ fall beneath.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null,
             "metadata" : { },
             "creation_date" : "2012-10-01T00:00:00Z",
@@ -1424,6 +1431,7 @@ fall beneath.
                 "user_id' : "USR123",
                 "title" : "Optional Title",
                 "body" : "Comment Body",
+                "score" : 1,
                 "parent_id" : null,
                 "metadata" : { },
                 "creation_date" : "2012-10-01T00:00:00Z",
@@ -1449,6 +1457,7 @@ fall beneath.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null,
             "metadata" : { },
             "creation_date" : "2012-10-01T00:00:00Z",
@@ -1462,8 +1471,7 @@ fall beneath.
 
 ### Update campaign comment
 
-Currently you can only alter the metadata of a comment object once it has been
-created.
+Currently you can only alter the score and the metadata of a comment.
 
     PUT /campaigns/:id/comments/:id
 
@@ -1471,6 +1479,7 @@ created.
 
     {
         "comment" : {
+            "score" : 2,
             "metadata" : {
                 "key" : "value",
             }
@@ -1485,6 +1494,7 @@ created.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 2,
             "parent_id" : null,
             "metadata" : {
                 "key" : "value",
