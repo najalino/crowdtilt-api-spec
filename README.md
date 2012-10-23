@@ -1378,10 +1378,15 @@ refund subresource.
 
 ### Create Campaign Comment
 
-Simply post a `body`, `user_id`, and optional `parent_id`, `title` fields to
-`/campaigns/:id/comments`. The `parent_id` field is used for comment
-threading, to specify the parent comment that this new comment should
-fall beneath.
+To create a comment, POST to `/campaigns/:id/comments`.
+The only required fields are the `user_id` of the comment author
+and the `body` of the comment.
+The `title`, `parent_id`, and `score` fields are optional.
+The `parent_id` is the id of the parent of this comment, i.e.,
+the comment that this comment is a reply to.
+This only matters if you want to support nested comments.
+You may provide a `parent_id` of null for top-level comments.
+The purpose of the `score` field is to provide support for voting on comments.
 
     POST /campaigns/:id/comments
 
@@ -1390,6 +1395,7 @@ fall beneath.
             "user_id' : "USR123",
             "title" : "Optional Title",
             "body" : "Comment Body",
+            "score" : 1,
             "parent_id" : null
         }
     }
