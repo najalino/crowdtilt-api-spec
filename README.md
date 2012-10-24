@@ -507,8 +507,8 @@ campaigns that he paid for.
         },
         "campaigns": [
             {
-                "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-                "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+                "id": "CMPBDA",
+                "user_id": "USREC5",
                 "title": "Campaign Title",
                 "description": "some description",
                 "privacy": 1,
@@ -560,7 +560,7 @@ This resource returns a specific campaign created by this user.
        "campaign" : {
           "img" : null,
           "metadata" : { },
-          "id" : "CMP96B85E161A3911E290C6E5EC3AF7B0DE",
+          "id" : "CMP96B",
           "tilter_uri" : null,
           "is_paid" : 0,
           "privacy" : 1,
@@ -571,7 +571,7 @@ This resource returns a specific campaign created by this user.
           "uri" : "/v1/campaigns/CMP96B",
           "creation_date" : "2012-10-19T15:09:01.869085000Z",
           "first_contributor_uri" : null,
-          "user_id" : "USR5212EA0C1A3811E29AB7E5EC3AF7B0DE",
+          "user_id" : "USR521",
           "title" : "some title",
           "modification_date" : "2012-10-19T15:09:01.869085000Z",
           "stats" : {
@@ -586,7 +586,7 @@ This resource returns a specific campaign created by this user.
           "min_payment_amount" : 0,
           "tax_id" : null,
           "tax_name" : null,
-          "payments_uri" : "/v1/campaigns/CMP96B/contributions"
+          "payments_uri" : "/v1/campaigns/CMP96B/payments"
        }
     }
 
@@ -615,8 +615,8 @@ This resource returns all the campaigns that the user paid for.
         },
         "campaigns": [
             {
-                "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-                "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+                "id": "CMPBDA",
+                "user_id": "USREC5",
                 "title": "Campaign Title",
                 "description": "some description",
                 "privacy": 1,
@@ -1043,7 +1043,7 @@ and then be able to receive the money collected in their campaign.
 
     {
         "campaign": {
-            "user_id":"USREC5805B607F011E2A93D891F1FA3CE6F",
+            "user_id":"USREC5",
             "title":"Campaign Title",
             "description":"some description",
             "expiration_date":"2000-01-02T01:02:03Z",
@@ -1056,7 +1056,7 @@ and then be able to receive the money collected in their campaign.
     {
         "campaign": {
             "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-            "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "user_id": "USREC5",
             "title": "Campaign Title",
             "description": "some description",
             "privacy": 1,
@@ -1101,8 +1101,8 @@ and then be able to receive the money collected in their campaign.
 
     {
         "campaign": {
-            "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-            "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "id": "CMPBDA",
+            "user_id": "USREC5",
             "title": "Campaign Title",
             "description": "some description",
             "privacy": 1,
@@ -1154,8 +1154,8 @@ and then be able to receive the money collected in their campaign.
         },
         "campaigns": [
             {
-                "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-                "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+                "id": "CMPBDA",
+                "user_id": "USREC5",
                 "title": "Campaign Title",
                 "description": "some description",
                 "privacy": 1,
@@ -1207,8 +1207,8 @@ to update a single attribute without having to send the full [campaign object](/
 
     {
         "campaign": {
-            "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
-            "user_id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "id": "CMPBDA",
+            "user_id": "USREC5",
             "title": "Campaign Title",
             "description": "some description",
             "privacy": 1,
@@ -1250,21 +1250,32 @@ to update a single attribute without having to send the full [campaign object](/
 ### Create campaign payment
 
 Before a user is able to contribute, they need to have a Credit Card associated
-to them.
+to them.  All amounts and prices used in this API are *always* in cents.
+
+When creating a payment, the `amount` field determines how much money is
+going to the campaign.  The `user_fee_amount` accepts a value that will be
+charged to the paying user, on top of the `amount`, and the `admin_fee_amount`
+will be taken out of the money that goes to the campaign admin when the campaign
+tilts.
+
+For example, if a user wants to pay `$20.00` to a campaign, and you want to add
+a 2% fee to the user, you would send `amount` as `2000` and `user_fee_amount` as
+`40` (2% of the `$20.00`).  The users credit card would then be charged
+`$20.40`.  In the same scenario, if you wanted to charge 2% from the admin
+when the campaign tilts, you would set `admin_fee_amount` to `40` and on tilt
+the admin will only receive `$19.60` from the `$20.00` payment.
 
     POST /campaigns/:id/payments
 
-    $ curl -XPOST -u key:secret -HContent-Type:application/json \
-    http://localhost:5003/v1/campaigns/CMP96B/payments \
-    -d'
     {
-        "payment":{
-            "amount":100,
-            "security_code":123,
-            "user_id":"USR5212EA0C1A3811E29AB7E5EC3AF7B0DE",
-            "card_id":"CCPC4135AA41ACB11E29FF187DEF8301EF0"
+        "payment": {
+            "amount" : 2000,
+            "user_fee_amount" : 40,
+            "admin_fee_amount" : 40,
+            "user_id": "USR521",
+            "card_id": "CCPC41"
         }
-    }'
+    }
 
 
 #### Response Body
@@ -1272,18 +1283,20 @@ to them.
     {
        "payment" : {
           "status" : "charged",
-          "card_uri" : "/v1/users/USR521/cards",
-          "campaign_id" : "CMP96B85E161A3911E290C6E5EC3AF7B0DE",
+          "card_uri" : "/v1/users/USR521/cards/CCPC41",
+          "campaign_id" : "CMP96B",
           "campaign_uri" : "/v1/campaigns/CMP96B",
           "modification_date" : "2012-10-20T15:45:47Z",
           "metadata" : {},
-          "id" : "CON2331FDDC1ACD11E29C0B87DEF8301EF0",
+          "id" : "CON233",
           "user_uri" : "/v1/users/USR521",
-          "uri" : "/v1/campaigns/CMP96B/contributions/CON233",
-          "amount" : "100",
+          "uri" : "/v1/campaigns/CMP96B/payments/CON233",
+          "amount" : 2000,
+          "user_fee_amount" : 40,
+          "admin_fee_amount" : 40,
           "creation_date" : "2012-10-20T15:45:13Z",
-          "user_id" : "USR5212EA0C1A3811E29AB7E5EC3AF7B0DE",
-          "card_id" : "CCPC4135AA41ACB11E29FF187DEF8301EF0"
+          "user_id" : "USR521",
+          "card_id" : "CCPC41"
        }
     }
 
@@ -1302,17 +1315,19 @@ to them.
        "payment" : {
           "status" : "charged",
           "card_uri" : "/v1/users/USR521/cards",
-          "campaign_id" : "CMP96B85E161A3911E290C6E5EC3AF7B0DE",
+          "campaign_id" : "CMP96B",
           "campaign_uri" : "/v1/campaigns/CMP96B",
           "modification_date" : "2012-10-20T15:45:47Z",
           "metadata" : {},
-          "id" : "CON2331FDDC1ACD11E29C0B87DEF8301EF0",
+          "id" : "CON233",
           "user_uri" : "/v1/users/USR521",
-          "uri" : "/v1/campaigns/CMP96B/contributions/CON233",
-          "amount" : 100,
+          "uri" : "/v1/campaigns/CMP96B/payments/CON233",
+          "amount" : 2000,
+          "user_fee_amount" : 40,
+          "admin_fee_amount" : 40,
           "creation_date" : "2012-10-20T15:45:13Z",
-          "user_id" : "USR5212EA0C1A3811E29AB7E5EC3AF7B0DE",
-          "card_id" : "CCPC4135AA41ACB11E29FF187DEF8301EF0"
+          "user_id" : "USR521",
+          "card_id" : "CCPC41"
        }
     }
 
@@ -1333,17 +1348,19 @@ to them.
           {
              "status" : "charged",
              "card_uri" : "/v1/users/USR521/cards",
-             "campaign_id" : "CMP96B85E161A3911E290C6E5EC3AF7B0DE",
+             "campaign_id" : "CMP96B",
              "campaign_uri" : "/v1/campaigns/CMP96B",
              "modification_date" : "2012-10-20T15:45:47Z",
              "metadata" : {},
-             "id" : "CON2331FDDC1ACD11E29C0B87DEF8301EF0",
+             "id" : "CON233",
              "user_uri" : "/v1/users/USR521",
-             "uri" : "/v1/campaigns/CMP96B/contributions/CON233",
-             "amount" : 100,
+             "uri" : "/v1/campaigns/CMP96B/payments/CON233",
+             "amount" : 2000,
+             "user_fee_amount" : 40,
+             "admin_fee_amount" : 40,
              "creation_date" : "2012-10-20T15:45:13Z",
-             "user_id" : "USR5212EA0C1A3811E29AB7E5EC3AF7B0DE",
-             "card_id" : "CCPC4135AA41ACB11E29FF187DEF8301EF0"
+             "user_id" : "USR521",
+             "card_id" : "CCPC41"
           }
        ],
        "pagination" : {
