@@ -524,9 +524,7 @@ campaigns that he paid for.
                 "uri": "/v1/campaigns/CMPBDA",
                 "admin_uri": "/v1/users/USREC5",
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
-                "metadata": {
-                    "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-name"
-                },
+                "metadata": { },
                 "stats": {
                     "tilt_percent": 0,
                     "raised_amount": 0,
@@ -632,9 +630,7 @@ This resource returns all the campaigns that the user paid for.
                 "uri": "/v1/campaigns/CMPBDA",
                 "admin_uri": "/v1/users/USREC5",
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
-                "metadata": {
-                    "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-name"
-                },
+                "metadata": { },
                 "stats": {
                     "tilt_percent": 0,
                     "raised_amount": 0,
@@ -1076,9 +1072,7 @@ and then be able to receive the money collected in their campaign.
             "uri": "/v1/campaigns/CMPBDA",
             "admin_uri": "/v1/users/USREC5",
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
-            "metadata": {
-                "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-title"
-            },
+            "metadata": { },
             "stats": {
                 "tilt_percent": 0,
                 "raised_amount": 0,
@@ -1122,9 +1116,7 @@ and then be able to receive the money collected in their campaign.
             "uri": "/v1/campaigns/CMPBDA",
             "admin_uri": "/v1/users/USREC5",
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
-            "metadata": {
-                "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-title"
-            },
+            "metadata": { },
             "stats": {
                 "tilt_percent": 0,
                 "raised_amount": 0,
@@ -1175,9 +1167,7 @@ and then be able to receive the money collected in their campaign.
                 "uri": "/v1/campaigns/CMPBDA",
                 "admin_uri": "/v1/users/USREC5",
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
-                "metadata": {
-                    "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-name"
-                },
+                "metadata": { },
                 "stats": {
                     "tilt_percent": 0,
                     "raised_amount": 0,
@@ -1228,9 +1218,7 @@ to update a single attribute without having to send the full [campaign object](/
             "uri": "/v1/campaigns/CMPBDA",
             "admin_uri": "/v1/users/USREC5",
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
-            "metadata": {
-                "crowdtilt_uri": "https://www.crowdtilt.com/campaigns/campaign-title"
-            },
+            "metadata": { },
             "stats": {
                 "tilt_percent": 0,
                 "raised_amount": 0,
