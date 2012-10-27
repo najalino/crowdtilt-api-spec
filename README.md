@@ -264,7 +264,7 @@ branch.
 
     {
         "user": {
-            "id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "id": "USREC5",
             "email": "foo.bar@gmail.com",
             "firstname": "Foo",
             "lastname": "Bar",
@@ -275,8 +275,7 @@ branch.
             "uri": "/v1/users/USREC5",
             "campaigns_uri": "/v1/users/USREC5/campaigns",
             "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
-            "payments_uri":
-            "/v1/users/USREC5/payments",
+            "payments_uri": "/v1/users/USREC5/payments",
             "roles" : ["contributor"],
             "metadata": {}
         }
@@ -347,7 +346,7 @@ password, as query parameters.
 
     {
        "user" : {
-          "id" : "USRB07B696C07FE11E2A3807B351FA3CE6F",
+          "id" : "USRB07",
           "firstname" : "foo",
           "lastname" : "bar",
           "status" : 1,
@@ -376,7 +375,7 @@ password, as query parameters.
 
     {
         "user": {
-            "id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "id": "USREC5",
             "email": "foo.bar@gmail.com",
             "firstname": "Foo",
             "lastname": "Bar",
@@ -415,7 +414,7 @@ password, as query parameters.
         },
         "users": [
             {
-                "id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+                "id": "USREC5",
                 "email": "foo.bar@gmail.com",
                 "firstname": "Foo",
                 "lastname": "Bar",
@@ -462,7 +461,7 @@ to update a single attribute without having to send the full
 
     {
         "user": {
-            "id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+            "id": "USREC5",
             "email": "foo.bar@gmail.com",
             "firstname": "Foo",
             "lastname": "new last name",
@@ -522,8 +521,8 @@ campaigns that he paid for.
                 "tax_id": null,
                 "tax_name": null,
                 "uri": "/v1/campaigns/CMPBDA",
-                "admin_uri": "/v1/users/USREC5",
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
+                "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
                 "metadata": { },
                 "stats": {
                     "tilt_percent": 0,
@@ -559,7 +558,6 @@ This resource returns a specific campaign created by this user.
           "img" : null,
           "metadata" : { },
           "id" : "CMP96B",
-          "tilter_uri" : null,
           "is_paid" : 0,
           "privacy" : 1,
           "is_expired" : 1,
@@ -568,7 +566,8 @@ This resource returns a specific campaign created by this user.
           "description" : "some description",
           "uri" : "/v1/campaigns/CMP96B",
           "creation_date" : "2012-10-19T15:09:01.869085000Z",
-          "first_contributor_uri" : null,
+          "first_contributor" : { "id" : "USR123", "uri" : "/v1/users/USR123", ... },
+          "tilter" : { "id" : "USR456", "uri" : "/v1/users/USR456", ... },
           "user_id" : "USR521",
           "title" : "some title",
           "modification_date" : "2012-10-19T15:09:01.869085000Z",
@@ -580,7 +579,7 @@ This resource returns a specific campaign created by this user.
           },
           "expiration_date" : "2000-01-02T01:02:03Z",
           "is_tilted" : 0,
-          "admin_uri" : "/v1/users/USR521",
+          "admin": { "id": "USREC5", ... },
           "min_payment_amount" : 0,
           "tax_id" : null,
           "tax_name" : null,
@@ -628,7 +627,7 @@ This resource returns all the campaigns that the user paid for.
                 "tax_id": null,
                 "tax_name": null,
                 "uri": "/v1/campaigns/CMPBDA",
-                "admin_uri": "/v1/users/USREC5",
+                "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
                 "metadata": { },
                 "stats": {
@@ -675,7 +674,7 @@ This resource returns all the campaigns that the user paid for.
                  "last_four" : "1111",
                  "expiration_year" : 2023,
                  "expiration_month" : "01",
-                 "user_uri" : "/v1/users/USR50A",
+                 "user": { "id" : "USR50A", "uri" : "/v1/users/USR50A", ... },
                  "uri" : "/v1/users/USR50A/cards/CCP6D6",
                  "card_type" : "VISA card",
                  "creation_date" : "2012-08-23T07:42:46.134467000Z",
@@ -705,7 +704,7 @@ This resource returns all the campaigns that the user paid for.
             "last_four" : "1234",
                 "expiration_year" : 2034,
                 "expiration_month" : "04",
-                "user_uri" : "/v1/users/USR50A",
+                "user": { "id" : "USR50A", "uri" : "/v1/users/USR50A", ... },
                 "uri" : "/v1/users/USR50A/cards/CCP6D6",
                 "card_type" : null,
                 "creation_date" : "2012-08-23T07:42:46.134467000Z",
@@ -767,7 +766,7 @@ request.  Other fields submitted will be ignored.
             "last_four" : "1234",
                 "expiration_year" : 2034,
                 "expiration_month" : "04",
-                "user_uri" : "/v1/users/USR50A",
+                "user": { "id": "USR50A", ... },
                 "uri" : "/v1/users/USR50A/cards/CCP6D6",
                 "card_type" : null,
                 "creation_date" : "2012-08-23T07:42:46.134467000Z",
@@ -802,12 +801,11 @@ request.  Other fields submitted will be ignored.
 
     {
         "bank": {
-
             "account_number_last_four" : "1234",
             "metadata" : {},
             "id" : "BAP688E65FA0C6D11E28914FE5E5CD73F12",
             "name" : "John Doe",
-            "user_uri" : "/v1/users/USR54B",
+            "user": { "id" : "USR54B", "uri" : "/v1/users/USR54B", ... },
             "bank_code_last_four" : "1234",
             "uri" : "/v1/users/USR54B/banks/BAP688"
         }
@@ -830,7 +828,7 @@ request.  Other fields submitted will be ignored.
             "metadata" : {},
             "id" : "BAP688E65FA0C6D11E28914FE5E5CD73F12",
             "name" : "John Doe",
-            "user_uri" : "/v1/users/USR54B",
+            "user": { "id" : "USR54B", "uri" : "/v1/users/USR54B", ... },
             "bank_code_last_four" : "1234",
             "uri" : "/v1/users/USR54B/banks/BAP688"
         }
@@ -862,7 +860,7 @@ This resource lists the bank accounts associated with this user.
                 "metadata" : {},
                 "id" : "BAP688E65FA0C6D11E28914FE5E5CD73F12",
                 "name" : "John Doe",
-                "user_uri" : "/v1/users/USR54B",
+                "user": { "id" : "USR54B", "uri" : "/v1/users/USR54B", ... },
                 "bank_code_last_four" : "1234",
                 "uri" : "/v1/users/USR54B/banks/BAP688"
             }
@@ -902,7 +900,7 @@ request.  Other fields submitted will be ignored.
             },
             "id" : "BAP688E65FA0C6D11E28914FE5E5CD73F12",
             "name" : "John Doe",
-            "user_uri" : "/v1/users/USR54B",
+            "user": { "id" : "USR54B", "uri" : "/v1/users/USR54B", ... },
             "bank_code_last_four" : "1234",
             "uri" : "/v1/users/USR54B/banks/BAP688"
         }
@@ -943,10 +941,6 @@ request.  Other fields submitted will be ignored.
 #### Response Codes
 
     200 => OK
-
-
-
-
 
 
 ## Campaign Resources
@@ -1051,7 +1045,7 @@ and then be able to receive the money collected in their campaign.
 
     {
         "campaign": {
-            "id": "CMPBDA0AE14090111E2A84BA81920A3CE6F",
+            "id": "CMPBDA",
             "user_id": "USREC5",
             "title": "Campaign Title",
             "description": "some description",
@@ -1070,7 +1064,7 @@ and then be able to receive the money collected in their campaign.
             "tax_id": null,
             "tax_name": null,
             "uri": "/v1/campaigns/CMPBDA",
-            "admin_uri": "/v1/users/USREC5",
+            "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
             "metadata": { },
             "stats": {
@@ -1114,7 +1108,7 @@ and then be able to receive the money collected in their campaign.
             "tax_id": null,
             "tax_name": null,
             "uri": "/v1/campaigns/CMPBDA",
-            "admin_uri": "/v1/users/USREC5",
+            "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
             "metadata": { },
             "stats": {
@@ -1165,7 +1159,7 @@ and then be able to receive the money collected in their campaign.
                 "tax_id": null,
                 "tax_name": null,
                 "uri": "/v1/campaigns/CMPBDA",
-                "admin_uri": "/v1/users/USREC5",
+                "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
                 "payments_uri": "/v1/campaigns/CMPBDA/payments",
                 "metadata": { },
                 "stats": {
@@ -1216,7 +1210,7 @@ to update a single attribute without having to send the full [campaign object](/
             "tax_id": null,
             "tax_name": null,
             "uri": "/v1/campaigns/CMPBDA",
-            "admin_uri": "/v1/users/USREC5",
+            "admin": { "id": "USREC5", "uri": "/v1/users/USREC5", ... },
             "payments_uri": "/v1/campaigns/CMPBDA/payments",
             "metadata": { },
             "stats": {
@@ -1271,20 +1265,17 @@ the admin will only receive `$19.60` from the `$20.00` payment.
     {
        "payment" : {
           "status" : "charged",
-          "card_uri" : "/v1/users/USR521/cards/CCPC41",
-          "campaign_id" : "CMP96B",
-          "campaign_uri" : "/v1/campaigns/CMP96B",
           "modification_date" : "2012-10-20T15:45:47Z",
           "metadata" : {},
           "id" : "CON233",
-          "user_uri" : "/v1/users/USR521",
           "uri" : "/v1/campaigns/CMP96B/payments/CON233",
           "amount" : 2000,
           "user_fee_amount" : 40,
           "admin_fee_amount" : 40,
           "creation_date" : "2012-10-20T15:45:13Z",
-          "user_id" : "USR521",
-          "card_id" : "CCPC41"
+          "campaign" : { "id": "CMP96B", "uri" : "/v1/campaigns/CMP96B", ... },
+          "card" : { "id" : "CCPC41", "uri" : "/v1/users/USR521/cards/CCPC41", ... },
+          "user": { "id" : "USR521", "uri" : "/v1/users/USR521", ... },
        }
     }
 
@@ -1302,20 +1293,17 @@ the admin will only receive `$19.60` from the `$20.00` payment.
     {
        "payment" : {
           "status" : "charged",
-          "card_uri" : "/v1/users/USR521/cards",
-          "campaign_id" : "CMP96B",
-          "campaign_uri" : "/v1/campaigns/CMP96B",
           "modification_date" : "2012-10-20T15:45:47Z",
           "metadata" : {},
           "id" : "CON233",
-          "user_uri" : "/v1/users/USR521",
           "uri" : "/v1/campaigns/CMP96B/payments/CON233",
           "amount" : 2000,
           "user_fee_amount" : 40,
           "admin_fee_amount" : 40,
           "creation_date" : "2012-10-20T15:45:13Z",
-          "user_id" : "USR521",
-          "card_id" : "CCPC41"
+          "campaign" : { "id": "CMP96B", "uri" : "/v1/campaigns/CMP96B", ... },
+          "card" : { "id" : "CCPC41", "uri" : "/v1/users/USR521/cards/CCPC41", ... },
+          "user": { "id" : "USR521", "uri" : "/v1/users/USR521", ... },
        }
     }
 
@@ -1335,20 +1323,17 @@ the admin will only receive `$19.60` from the `$20.00` payment.
        "payments" : [
           {
              "status" : "charged",
-             "card_uri" : "/v1/users/USR521/cards",
-             "campaign_id" : "CMP96B",
-             "campaign_uri" : "/v1/campaigns/CMP96B",
              "modification_date" : "2012-10-20T15:45:47Z",
              "metadata" : {},
              "id" : "CON233",
-             "user_uri" : "/v1/users/USR521",
              "uri" : "/v1/campaigns/CMP96B/payments/CON233",
              "amount" : 2000,
              "user_fee_amount" : 40,
              "admin_fee_amount" : 40,
              "creation_date" : "2012-10-20T15:45:13Z",
-             "user_id" : "USR521",
-             "card_id" : "CCPC41"
+             "campaign" : { "id": "CMP96B", "uri" : "/v1/campaigns/CMP96B", ... },
+             "card" : { "id" : "CCPC41", "uri" : "/v1/users/USR521/cards/CCPC41", ... },
+             "user": { "id" : "USR521", "uri" : "/v1/users/USR521", ... },
           }
        ],
        "pagination" : {
@@ -1514,10 +1499,6 @@ Currently you can only alter the score and the metadata of a comment.
     200 => OK
 
 ### Delete a comment
-
-Simply post a `body` and optional `parent_id to `/campaigns/:id/comments`. The
-`parent_id` field is used for comment threading, to specify the parent comment
-that this new comment should fall beneath.
 
     DELETE /campaigns/:id/comments/:id
 
@@ -1799,10 +1780,10 @@ TODO: Fill
             <td>The uri for this campaign resource</td>
         </tr>
         <tr>
-            <td>admin_uri</td>
-            <td>string</td>
+            <td>admin</td>
+            <td>JSON object</td>
             <td>Auto generated and read-only</td>
-            <td>The uri for this campaign's admin</td>
+            <td>This campaign's admin</td>
         </tr>
         <tr>
             <td>payments_uri</td>
@@ -1821,6 +1802,7 @@ TODO: Fill
 
 
 ## Payment Definition
+
 <table>
     <thead>
         <tr>
@@ -1883,22 +1865,22 @@ TODO: Fill
             <td>The uri for this campaign resource</td>
         </tr>
         <tr>
-            <td>user_uri</td>
-            <td>string</td>
+            <td>user</td>
+            <td>JSON object</td>
             <td>Auto generated and read-only</td>
-            <td>The uri for this contributor of this payment</td>
+            <td>The contributor of this payment</td>
         </tr>
         <tr>
-            <td>card_uri</td>
-            <td>string</td>
+            <td>card</td>
+            <td>JSON object</td>
             <td>Auto generated and read-only</td>
-            <td>The uri for the card used for this payment</td>
+            <td>The card used for this payment</td>
         </tr>
         <tr>
-            <td>campaign_uri</td>
-            <td>string</td>
+            <td>campaign</td>
+            <td>JSON object</td>
             <td>Auto generated and read-only</td>
-            <td>The uri for the campaign this payment is going towards</td>
+            <td>The campaign this payment is for</td>
         </tr>
         <tr>
             <td>metadata</td>
@@ -1927,7 +1909,7 @@ of **50** entries per page. For example:
         },
         "users": [
             {
-                "id": "USREC5805B607F011E2A93D891F1FA3CE6F",
+                "id": "USREC5",
                 "email": "foo.bar@gmail.com",
                 "firstname": "Foo",
                 "lastname": "Bar",
