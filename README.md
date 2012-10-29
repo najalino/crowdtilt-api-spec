@@ -34,6 +34,7 @@ What we think is cool about the Crowdtilt API:
     * [Campaigns](#campaigns)
     * [Campaign Payments](#campaign-payments)
     * [Refunds](#refunds)
+    * [Campaign Settlements](#campaign-settlements)
     * [Campaign Comments](#campaign-comments)
 * [Examples](#examples)
 * [Pagination](#pagination)
@@ -948,6 +949,8 @@ request.  Other fields submitted will be ignored.
 * [Campaigns](#campaigns)
 * [Campaign Payments](#campaign-payments)
 * [Refunds](#refunds)
+* [Campaign Settlements](#campaign-payments)
+* [Campaign Comments](#campaign-comments)
 
 <table>
     <thead>
@@ -995,6 +998,27 @@ request.  Other fields submitted will be ignored.
                 <a href="#refund-a-payment">POST</a>
             </td>
             <td> Refunding a specific payment </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements</td>
+            <td>
+                <a href="#get-campaign-settlements">GET</a>
+            </td>
+            <td> Campaign Settlements </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements/:id</td>
+            <td>
+                <a href="#list-campaign-settlement">GET</a>
+            </td>
+            <td> Campaign Settlement </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements/:id/bank</td>
+            <td>
+                <a href="#update-campaign-settlement-bank">POST</a>
+            </td>
+            <td> Update a Campaign Settlement Bank </td>
         </tr>
         <tr>
             <td>/campaigns/:id/comments</td>
@@ -1363,6 +1387,94 @@ refund subresource.
 #### Response Codes
 
     200 => OK
+
+## Campaign Settlements
+
+Campaign Settlements represent a disbursement of funds for a tilted campaign.
+A campaign settlement will show you the `campaign`, `bank`, and `user` that the
+`settlement` belongs to.  It will also show you the `admin_amount`, which is the
+amount of money being sent to the admin's bank account.  The `escrow_amount`
+is how much money from the campaign is going into your escrow account (it
+represents fees charged to the admin and payers).  Possible statuses for a
+campaign settlement are:
+
+* `needs bank account` - this means that admin of the campaign needs to set up
+  his or her bank account before the funds will be sent.
+* `pending` - this means that the funds are being transfered to the bank account
+  specified in the settlement.
+* `rejected` - this means that the settlement was rejected and could not be
+  sent to the bank account in question.  In these cases, the bank account
+  can be updated, as specified in the
+  [update campaign settlement](#update-campaign-settlement-bank) section.
+* `re-sent pending` - this means that the settlement previously failed, but the
+  bank account has been updated, and the funds are being transfered to the new
+  bank account.
+* `cleared` - this means that the funds have cleared the bank account and the
+  settlement has completed successfully.
+
+### List Campaign Settlements
+
+    GET /campaigns/:id/settlements
+
+#### Response
+
+    "settlements" : [
+        {
+            "id" : "SMTD88",
+                "status" : "pending",
+                "admin_amount" : 1960,
+                "escrow_amount" : 40,
+                "modification_date" : "2012-10-29T15:34:48.177091000Z",
+                "creation_date" : "2012-10-29T15:34:48.177091000Z",
+                "bank" : { "id" : "BAPCA3", "uri" : "/v1/users/USRC77/banks/BAPCA3", ... },
+                "campaign" : { "id" : "CMPCCC", "uri" : "/v1/campaigns/CMPCCC", ... },
+                "user" : { "id" : "USRC7B", "uri" : "/v1/users/USRC7B", ... }
+        },
+        .
+        .
+        .
+    ],
+    "pagination" : {
+        "total_pages" : 1,
+        "page" : 1,
+        "total_entries" : 1,
+        "per_page" : 50
+    }
+
+
+### Get Campaign Settlement
+
+    GET /campaigns/:id/settlements/:id
+
+#### Response
+
+    {
+        "settlement" : {
+            "id" : "SMTD88",
+                "status" : "pending",
+                "admin_amount" : 1960,
+                "escrow_amount" : 40,
+                "modification_date" : "2012-10-29T15:34:48.177091000Z",
+                "creation_date" : "2012-10-29T15:34:48.177091000Z",
+                "bank" : { "id" : "BAPCA3", "uri" : "/v1/users/USRC77/banks/BAPCA3", ... },
+                "campaign" : { "id" : "CMPCCC", "uri" : "/v1/campaigns/CMPCCC", ... },
+                "user" : { "id" : "USRC7B", "uri" : "/v1/users/USRC7B", ... }
+        }
+    }
+
+### Update Campaign Settlement Bank
+
+A Campaign Settlement can only be updated if the status is `needs bank account`.
+In this instance, a `bank` object can be sent with the `id` of a new bank
+account to re-attempt the settlement with.
+
+    POST /campaigns/:id/settlements/:id/bank
+
+#### Request
+
+    {
+        "bank" : { "id" : "BAPCA4" }
+    }
 
 ## Campaign Comments
 
