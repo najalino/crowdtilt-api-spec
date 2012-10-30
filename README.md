@@ -1,3 +1,5 @@
+![Crowdtilt](http://f9b43d4100c64ffefa80-01a69cdaa3d52fbca65973574eec9d29.r21.cf2.rackcdn.com/ct_logo.png)
+
 # Crowdtilt API Specs
 
 The Crowdtilt API opens up the opportunity for developers to:
@@ -40,7 +42,7 @@ What we think is cool about the Crowdtilt API:
 * [Pagination](#pagination)
 
 
-### Introduction
+## Introduction
 
 It is important to understand that the Crowdtilt API is a layer of abstraction
 on top payment processors. When interacting with a payment gateway, the focus
@@ -343,7 +345,7 @@ password, as query parameters.
 
     GET /users/authentication?email=user@example.com&password=mypassword
 
-### Response Body
+#### Response Body
 
     {
        "user" : {
@@ -359,7 +361,7 @@ password, as query parameters.
        }
     }
 
-### Response Codes
+#### Response Codes
 
     302 => Found
     401 => Unauthorized
@@ -667,7 +669,7 @@ This resource returns all the campaigns that the user paid for.
     }
     '
 
-### Response Body
+#### Response Body
 
     {
         "cards" : [
@@ -686,7 +688,7 @@ This resource returns all the campaigns that the user paid for.
           ]
     }
 
-### Response Codes
+#### Response Codes
 
     201 => Created
 
@@ -698,7 +700,7 @@ This resource returns all the campaigns that the user paid for.
     $ curl -u key:secret \
     https://api.crowdtilt.com/v1/users/USR50A/cards/CCP6D6
 
-### Response Body
+#### Response Body
 
     {
         "card": {
@@ -714,18 +716,18 @@ This resource returns all the campaigns that the user paid for.
         }
     }
 
-### Response Codes
+#### Response Codes
 
     200 => OK
 
 
-## List User Cards
+### List User Cards
 
-### Request
+#### Request
 
     GET /users/:id/cards
 
-### Response Body
+#### Response Body
 
     {
         "pagination": {
@@ -737,7 +739,7 @@ This resource returns all the campaigns that the user paid for.
         "cards": []
     }
 
-### Response Codes
+#### Response Codes
 
     200 => OK
 
@@ -750,7 +752,7 @@ request.  Other fields submitted will be ignored.
 
     PUT /users/:id/cards/:id
 
-### Request Body
+#### Request Body
 
     {
         "card": {
@@ -760,7 +762,7 @@ request.  Other fields submitted will be ignored.
         }
     }
 
-### Response Body
+#### Response Body
 
     {
         "card": {
@@ -778,7 +780,7 @@ request.  Other fields submitted will be ignored.
         }
     }
 
-### Response Codes
+#### Response Codes
 
     200 => OK
 
@@ -787,7 +789,7 @@ request.  Other fields submitted will be ignored.
 
     DELETE /users/:id/cards/:id
 
-### Response Codes
+#### Response Codes
 
     200 => OK
 
