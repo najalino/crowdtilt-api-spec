@@ -1960,7 +1960,33 @@ TODO: Fill
             <td>amount</td>
             <td>number</td>
             <td>Yes</td>
-            <td>The amount of this payment</td>
+            <td>
+                The amount of this payment that will go towards the campaign
+            </td>
+        </tr>
+        <tr>
+            <td>user_fee_amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>
+                The amount to charge the user (payer) for this contribution.
+                This amount will be *added* to the `amount` value when
+                determining what will be charged to the users card.
+                The full charge amount will be `amount` + `user_fee_amount`.
+            </td>
+        </tr>
+        <tr>
+            <td>admin_fee_amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>
+                The amount to charge the admin of the campaign for this
+                contribution.  This value does *not* affect the amount charged
+                to the user, but instead affects how much of the `amount` value
+                goes to the campaign admin.  The admin will get `amount` -
+                `admin_fee_amount` from this contribution when the campaign
+                tilts and expires.
+            </td>
         </tr>
         <tr>
             <td>status</td>
@@ -2003,19 +2029,19 @@ TODO: Fill
         </tr>
         <tr>
             <td>user</td>
-            <td>JSON object</td>
+            <td>JSON User object</td>
             <td>Auto generated and read-only</td>
             <td>The contributor of this payment</td>
         </tr>
         <tr>
             <td>card</td>
-            <td>JSON object</td>
+            <td>JSON Card object</td>
             <td>Auto generated and read-only</td>
             <td>The card used for this payment</td>
         </tr>
         <tr>
             <td>campaign</td>
-            <td>JSON object</td>
+            <td>JSON Campaign object</td>
             <td>Auto generated and read-only</td>
             <td>The campaign this payment is for</td>
         </tr>
@@ -2027,7 +2053,6 @@ TODO: Fill
         </tr>
     </tbody>
 </table>
-
 
 
 # Pagination
