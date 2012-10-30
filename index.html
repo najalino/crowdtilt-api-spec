@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowdtilt API</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://documentup.com/stylesheets/screen.css">
+    
+    
+
+    
+
+    <!-- Typekit -->
+    
+      <script type="text/javascript">
+        (function() {
+          var config = {
+            kitId: 'hjp0pft',
+            scriptTimeout: 3000
+          };
+          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/( |^)wf-loading( |$)/g,"");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script");tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(a&&a!="complete"&&a!="loaded")return;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+        })();
+      </script>
+    
+  </head>
+  <body><div id="container">
+  <div id="nav">
+    
+      <div id="header">
+        <a href="#" id="logo">Crowdtilt API</a>
+      </div>
+    
+    <ul id="sections">
+      
+        <li>
+          <a href="#introduction">Introduction</a>
+          
+        </li>
+      
+        <li>
+          <a href="#getting-started">Getting Started</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#getting-started/sandbox-environment">Sandbox Environment</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/authentication">Authentication</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/data-formats">Data Formats</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/client-libraries">Client Libraries</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/hackers-support">Hackers Support</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/getting-involved">Getting involved</a>
+                </li>
+              
+                <li>
+                  <a href="#getting-started/when-is-feature-x-going-to-be-in-production">When is feature X going to be in production?</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#user-resources">User Resources</a>
+          
+        </li>
+      
+        <li>
+          <a href="#users">Users</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#users/create-user">Create User</a>
+                </li>
+              
+                <li>
+                  <a href="#users/verify-user">Verify User</a>
+                </li>
+              
+                <li>
+                  <a href="#users/authenticate-user">Authenticate User</a>
+                </li>
+              
+                <li>
+                  <a href="#users/get-user">Get User</a>
+                </li>
+              
+                <li>
+                  <a href="#users/list-users">List Users</a>
+                </li>
+              
+                <li>
+                  <a href="#users/update-user">Update User</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#user-campaigns">User Campaigns</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#user-campaigns/get-user-campaigns">Get User Campaigns</a>
+                </li>
+              
+                <li>
+                  <a href="#user-campaigns/get-user-campaign">Get User Campaign</a>
+                </li>
+              
+                <li>
+                  <a href="#user-campaigns/get-user-paid-campaigns">Get User Paid Campaigns</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#user-cards">User Cards</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#user-cards/create-user-card">Create User Card</a>
+                </li>
+              
+                <li>
+                  <a href="#user-cards/get-user-card">Get User Card</a>
+                </li>
+              
+                <li>
+                  <a href="#user-cards/list-user-cards">List User Cards</a>
+                </li>
+              
+                <li>
+                  <a href="#user-cards/update-user-card">Update User Card</a>
+                </li>
+              
+                <li>
+                  <a href="#user-cards/delete-user-card">Delete User Card</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#user-banks">User Banks</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#user-banks/create-user-bank">Create User Bank</a>
+                </li>
+              
+                <li>
+                  <a href="#user-banks/get-user-bank">Get User Bank</a>
+                </li>
+              
+                <li>
+                  <a href="#user-banks/list-user-banks">List User Banks</a>
+                </li>
+              
+                <li>
+                  <a href="#user-banks/update-user-bank">Update User Bank</a>
+                </li>
+              
+                <li>
+                  <a href="#user-banks/delete-user-bank">Delete User Bank</a>
+                </li>
+              
+                <li>
+                  <a href="#user-banks/response-codes">Response Codes</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#user-payments">User Payments</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#user-payments/list-user-payments">List User Payments</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#campaign-resources">Campaign Resources</a>
+          
+        </li>
+      
+        <li>
+          <a href="#campaigns">Campaigns</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#campaigns/create-campaign">Create Campaign</a>
+                </li>
+              
+                <li>
+                  <a href="#campaigns/get-campaign">Get Campaign</a>
+                </li>
+              
+                <li>
+                  <a href="#campaigns/list-campaigns">List campaigns</a>
+                </li>
+              
+                <li>
+                  <a href="#campaigns/update-campaign">Update Campaign</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#campaign-payments">Campaign Payments</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#campaign-payments/create-campaign-payment">Create campaign payment</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-payments/get-campaign-payment">Get campaign payment</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-payments/get-campaign-payments">Get campaign payments</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#refunds">Refunds</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#refunds/refund-a-payment">Refund a payment</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#campaign-comments">Campaign Comments</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#campaign-comments/create-campaign-comment">Create Campaign Comment</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-comments/get-campaign-comments">Get Campaign Comments</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-comments/get-campaign-comment">Get campaign comment</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-comments/update-campaign-comment">Update campaign comment</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-comments/delete-a-comment">Delete a comment</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#examples">Examples</a>
+          
+        </li>
+      
+        <li>
+          <a href="#user-definition">User Definition</a>
+          
+        </li>
+      
+        <li>
+          <a href="#campaign-definition">Campaign Definition</a>
+          
+        </li>
+      
+        <li>
+          <a href="#payment-definition">Payment Definition</a>
+          
+        </li>
+      
+    </ul>
+    
+    
+  </div>
+  <div id="content">
+    
+    <p><img src="http://f9b43d4100c64ffefa80-01a69cdaa3d52fbca65973574eec9d29.r21.cf2.rackcdn.com/ct_logo.png" alt="Crowdtilt">
+
+</p>
+<h1>Crowdtilt API Specs</h1>
+<p>The Crowdtilt API opens up the opportunity for developers to:
+<em> Offer a group payments option in their applications.
+</em> Offer a pre-sales commerce option in their applications.
+<em> Develop a crowdfunding application (i.e., single project model like Lockitron
+    or multi-project model like Kickstarter).
+</em> Develop a social fundraising application.
+* Enable the collaboration around these styles of commerce.
+
+</p>
+<p>What we think is cool about the Crowdtilt API:
+<em> Developers can use the Crowdtilt API with their own payment processor
+    as it works with <a href="https://stripe.com/">Stripe</a>,
+    <a href="https://www.balancedpayments.com/">Balanced</a>,
+    <a href="https://www.wepay.com/">WePay</a>,
+    <a href="https://www.braintreepayments.com">BrainTree</a>.
+</em> The API also works with credit cards and ACH debit payments or a combination
+    of these.
+<em> The API provides collaboration tools such as commenting/updates, nested
+    comments, messaging, notifications, and tracking of those that have paid and
+    those that haven&#39;t.
+</em> The API supports both multiple currencies and international languages.
+
+</p>
+<h1>Menu</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#user-resources">User Resources</a><ul>
+<li><a href="#users">Users</a></li>
+<li><a href="#user-campaigns">User Campaigns</a></li>
+<li><a href="#user-cards">User Cards</a></li>
+<li><a href="#user-banks">User Banks</a></li>
+<li><a href="#user-payments">User Payments</a></li>
+</ul>
+</li>
+<li><a href="#campaign-resources">Campaign Resources</a><ul>
+<li><a href="#campaigns">Campaigns</a></li>
+<li><a href="#campaign-payments">Campaign Payments</a></li>
+<li><a href="#refunds">Refunds</a></li>
+<li><a href="#campaign-comments">Campaign Comments</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#pagination">Pagination</a></li>
+</ul>
+<h2 id='introduction'>Introduction</h2 id='introduction'>
+<p>It is important to understand that the Crowdtilt API is a layer of abstraction
+on top payment processors. When interacting with a payment gateway, the focus
+is highly transactional and payment-based.
+We consider a payment to be simply a part of a whole.
+Our API helps you focus on the whole.
+
+</p>
+<p>The API defines 3 main objects: <code>campaign</code>, <code>user</code>, and <code>payment</code>. At a
+very high-level, a <code>campaign</code> represents a monetary goal that one or more
+<code>users</code> try to achieve through <code>payments</code>. The campaign can define multiple
+payment policies such as <code>fixed payments</code>, e.g, tickets, or <code>variable
+payments</code>, e.g., donations.
+
+</p>
+<p><code>Payments</code> are simply a way for users to achieve the campaign goal. We believe
+that a good crowdfunding service should support any type of payment. Therefore,
+we are working on supporting as many payment methods as possible. Currently, we
+support credit cards and ACH debits.
+
+</p>
+<p>When the campaign is created, it has to have at least one <code>user</code> to act as the
+owner or the campaign admin. Once the campaign goal is achieved, the money is
+sent to the campaign admin according to the policies defined when the campaign
+was created.
+
+</p>
+<p>Here is a full definition for each one of those objects:
+<a href="#campaign-definition">campaign</a>, <a href="#user-definition">user</a>,
+<a href="#payment-definition">payment</a>.
+
+
+</p>
+<h2 id='getting-started'>Getting Started</h2 id='getting-started'>
+<p>The first step is to get an <code>API_KEY</code> and <code>API_SECRET</code>. During our beta
+program, please contact <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#10;&#x68;&#x72;&#101;&#102;&#x3d;&#34;&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#x74;&#46;&#97;&#112;&#x69;&#x40;&#99;&#x72;&#x6f;&#x77;&#x64;&#116;&#105;&#x6c;&#116;&#x2e;&#99;&#111;&#109;&#x3f;&#x53;&#117;&#x62;&#x6a;&#x65;&#x63;&#116;&#x3d;&#x41;&#80;&#x49;&#37;&#x32;&#x30;&#67;&#x72;&#101;&#100;&#115;&#34;">&#x61;&#10;&#x68;&#x72;&#101;&#102;&#x3d;&#34;&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#x74;&#46;&#97;&#112;&#x69;&#x40;&#99;&#x72;&#x6f;&#x77;&#x64;&#116;&#105;&#x6c;&#116;&#x2e;&#99;&#111;&#109;&#x3f;&#x53;&#117;&#x62;&#x6a;&#x65;&#x63;&#116;&#x3d;&#x41;&#80;&#x49;&#37;&#x32;&#x30;&#67;&#x72;&#101;&#100;&#115;&#34;</a>support.api@crowdtilt.com</a> to request these.
+Once you receive your Crowdtilt API credentials, you are ready to use the API.
+Remember that all API requests have to go over SSL.
+
+
+</p>
+<h3 id='getting-started/sandbox-environment'>Sandbox Environment</h3 id='getting-started/sandbox-environment'>
+<p>To help you build your application, we provide a sandbox environment that you
+can use for testing. Use the base URI below:
+
+</p>
+<pre><code><span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/</code></pre>
+<p>The sandbox environment will be configured with a free Balanced account. If
+you need support for a different payment processor, please <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#97;&#xa;&#x68;&#x72;&#x65;&#x66;&#61;&#x22;&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#46;&#97;&#x70;&#105;&#64;&#x63;&#114;&#x6f;&#119;&#100;&#116;&#x69;&#x6c;&#x74;&#x2e;&#x63;&#x6f;&#109;&#63;&#83;&#117;&#x62;&#106;&#101;&#99;&#x74;&#x3d;&#65;&#x50;&#73;&#x25;&#50;&#x30;&#x50;&#x61;&#x79;&#x6d;&#101;&#x6e;&#116;&#37;&#x32;&#x30;&#x50;&#114;&#x6f;&#99;&#x65;&#115;&#x73;&#x6f;&#x72;&#37;&#50;&#x30;&#83;&#97;&#110;&#x64;&#x62;&#111;&#x78;&#x22;">&#97;&#xa;&#x68;&#x72;&#x65;&#x66;&#61;&#x22;&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#46;&#97;&#x70;&#105;&#64;&#x63;&#114;&#x6f;&#119;&#100;&#116;&#x69;&#x6c;&#x74;&#x2e;&#x63;&#x6f;&#109;&#63;&#83;&#117;&#x62;&#106;&#101;&#99;&#x74;&#x3d;&#65;&#x50;&#73;&#x25;&#50;&#x30;&#x50;&#x61;&#x79;&#x6d;&#101;&#x6e;&#116;&#37;&#x32;&#x30;&#x50;&#114;&#x6f;&#99;&#x65;&#115;&#x73;&#x6f;&#x72;&#37;&#50;&#x30;&#83;&#97;&#110;&#x64;&#x62;&#111;&#x78;&#x22;</a>let us know </a>.
+
+
+</p>
+<h3 id='getting-started/authentication'>Authentication</h3 id='getting-started/authentication'>
+<p>We are big fans of simplicity. Therefore, we support <code>Basic Authentication</code>
+over SSL. You can simply use <code>curl</code> to test our API in 2 seconds.
+
+</p>
+<pre><code>$ curl -u API_KEY:API_SECRET https://api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1</code></pre>
+<p>If the credentials provided were invalid, the API will respond with
+
+</p>
+<pre><code><span class="setting">401 =<span class="value">> Unauthorized</span></span></code></pre>
+<h3 id='getting-started/data-formats'>Data Formats</h3 id='getting-started/data-formats'>
+<p>Currently, we only support JSON data formats. If you think we should support
+other data formats, please let us know what and why <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#97;&#10;&#x68;&#x72;&#x65;&#x66;&#x3d;&#x22;&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#x2e;&#97;&#x70;&#x69;&#64;&#x63;&#x72;&#111;&#119;&#100;&#x74;&#105;&#108;&#116;&#46;&#x63;&#111;&#x6d;&#63;&#83;&#117;&#x62;&#106;&#101;&#x63;&#x74;&#x3d;&#68;&#x61;&#116;&#97;&#37;&#x32;&#48;&#70;&#111;&#114;&#109;&#97;&#116;&#115;&#34;">&#97;&#10;&#x68;&#x72;&#x65;&#x66;&#x3d;&#x22;&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#x2e;&#97;&#x70;&#x69;&#64;&#x63;&#x72;&#111;&#119;&#100;&#x74;&#105;&#108;&#116;&#46;&#x63;&#111;&#x6d;&#63;&#83;&#117;&#x62;&#106;&#101;&#x63;&#x74;&#x3d;&#68;&#x61;&#116;&#97;&#37;&#x32;&#48;&#70;&#111;&#114;&#109;&#97;&#116;&#115;&#34;</a>support.api@crowdtilt.com</a>.
+
+
+</p>
+<h3 id='getting-started/client-libraries'>Client Libraries</h3 id='getting-started/client-libraries'>
+<p>Unfortunately, we don&#39;t have client libraries, yet. If you write one, let us
+know and we&#39;ll link to it.
+
+
+</p>
+<h3 id='getting-started/hackers-support'>Hackers Support</h3 id='getting-started/hackers-support'>
+<p>We like hanging out on IRC, a lot. Feel free to come hang out with us #crowdtilt
+at freenode. You can also send an email to
+<a href="mailto:support.api@crowdtilt.com">support.api@crowdtilt.com</a>.
+
+
+</p>
+<h3 id='getting-started/getting-involved'>Getting involved</h3 id='getting-started/getting-involved'>
+<p>We need your help and we would love to get you involved. Feel free to create
+github issues, give feedback and comment on ones, submit pull requests, or
+review specs. You can even ask for new features and vote on the ones you like to
+be a higher priority.
+
+
+</p>
+<h3 id='getting-started/when-is-feature-x-going-to-be-in-production'>When is feature X going to be in production?</h3 id='getting-started/when-is-feature-x-going-to-be-in-production'>
+<p>Any proposed spec change will be in a separate &quot;feature&quot; branch. Once we have a
+consensus from the community on the spec change, it&#39;ll be merged into <code>dev</code>
+branch, which means that the <a href="https://www.crowdtilt.com"
+target="_blank">Crowdtilt</a> team will start working on it. Once it is fully
+implemented and ready to go to production, it&#39;ll get merged to the <code>master</code>
+branch.
+
+
+</p>
+<h2 id='user-resources'>User Resources</h2 id='user-resources'>
+<ul>
+<li><a href="#users">Users</a></li>
+<li><a href="#user-campaigns">User Campaigns</a></li>
+<li><a href="#user-cards">User Cards</a></li>
+<li><a href="#user-banks">User Banks</a></li>
+<li><a href="#user-payments">User Payments</a></li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/users</td>
+            <td>
+                <a href="#list-users">GET</a>
+                <a href="#create-user">POST</a> </td>
+            <td> List of users </td>
+        </tr>
+        <tr>
+            <td>/users/authentication</td>
+            <td>
+                <a href="#authenticate-user">GET</a>
+            </td>
+            <td> Authenticate a user</td>
+        </tr>
+        <tr>
+            <td>/users/:id</td>
+            <td>
+                <a href="#get-user">GET</a>
+                <a href="#update-user">PUT</a>
+            </td>
+            <td> A specific user </td>
+        </tr>
+        <tr>
+            <td>/users/:id/verification</td>
+            <td>
+                <a href="#verify-user">POST</a>
+            </td>
+            <td> Verify a user to receive payments </td>
+        </tr>
+        <tr>
+            <td>/users/:id/campaigns</td>
+            <td>
+                <a href="#get-user-campaigns">GET</a>
+            </td>
+            <td> All campaigns the user is involved with </td>
+        </tr>
+        <tr>
+            <td>/users/:id/paid_campaigns</td>
+            <td>
+                <a href="#get-user-paid-campaigns">GET</a>
+            </td>
+            <td> Campaigns this user paid for </td>
+        </tr>
+        <tr>
+            <td>/users/:id/cards</td>
+            <td>
+                <a href="#list-user-cards">GET</a>
+                <a href="#create-user-card">POST</a>
+            </td>
+            <td>User credit cards</td>
+        </tr>
+        <tr>
+            <td>/users/:id/cards/:id</td>
+            <td>
+                <a href="#get-user-card">GET</a>
+                <a href="#update-user-card">PUT</a>
+                <a href="#delete-user-card">DELETE</a>
+            </td>
+            <td>A specific credit card</td>
+        </tr>
+        <tr>
+            <td>/users/:id/banks</td>
+            <td>
+                <a href="#list-user-banks">GET</a>
+                <a href="#create-user-bank">POST</a>
+            </td>
+            <td>User bank accounts</td>
+        </tr>
+        <tr>
+            <td>/users/:id/banks/:id</td>
+            <td>
+                <a href="#get-user-bank">GET</a>
+                <a href="#update-user-bank">PUT</a>
+                <a href="#delete-user-bank">DELETE</a>
+            </td>
+            <td>A specific bank account</td>
+        </tr>
+        <tr>
+            <td>/users/:id/payments</td>
+            <td>
+                <a href="#list-user-payments">GET</a>
+            </td>
+            <td> A list of Users payments</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id='users'>Users</h2 id='users'>
+<h3 id='users/create-user'>Create User</h3 id='users/create-user'>
+<pre><code><span class="title">POST</span> /users
+
+$ curl -XPOST -HContent-Type:application/json \
+-u key:secret <span class="url">http://api.crowdtilt.com/v1/users</span> \
+-d<span class="string">'
+{
+   "user" : {
+      "firstname" : "foo",
+      "lastname" : "bar",
+      "email" : "user<span class="variable">@example</span>.com"
+   }
+}'</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">user</span>": <span class="value">{
+        "<span class="attribute">id</span>": <span class="value"><span class="string">"USREC5"</span></span>,
+        "<span class="attribute">email</span>": <span class="value"><span class="string">"foo.bar@gmail.com"</span></span>,
+        "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
+        "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
+        "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
+        "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
+        "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
+        "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
+        "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
+        "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
+        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
+        "<span class="attribute">metadata</span>": <span class="value">{}
+    </span>}
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">201 =<span class="value">> Created</span></span>
+<span class="setting">400 =<span class="value">> Bad Request</span></span></code></pre>
+<h3 id='users/verify-user'>Verify User</h3 id='users/verify-user'>
+<p>In order for a user to receive money raised from a campaign, the user&#39;s identity
+needs to be verified.  A user is verified by <code>POST</code>ing verification data to the
+<code>/users/:id/verification</code>.
+
+</p>
+<p>The verification data is as follows:
+
+</p>
+<ul>
+<li><code>name</code> - should be the real name of the user</li>
+<li><code>dob</code> - the date of birth of the user in the format MM-YYYY</li>
+<li><code>phone_number</code> - the user&#39;s phone number</li>
+<li><code>street_address</code> - the user&#39;s street address</li>
+<li><code>postal code</code> - the user&#39;s postal code</li>
+</ul>
+<p>In some cases, if the user cannot be fully verified with this information, we
+may return a <code>449</code> response indicating that we need more info.  In these cases
+you should re-post the data with the additional <code>ssn</code> field containing the
+user&#39;s social security number for additional verification.
+
+</p>
+<p>Once the verification has succeeded, <code>is_verified</code> on the user object
+will be set to 1 to reflect this change.
+
+</p>
+<pre><code><span class="constant">POST</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">verification</span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">XPOST</span> -<span class="constant">HContent</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
+<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+-<span class="identifier">d</span><span class="string">'
+{
+   "verification" : {
+      "name" : "Khaled Hussein",
+      "dob" : "07-1984",
+      "phone_number" : "(000) 000-0000",
+      "street_address" : "324 awesome address, awesome city, CA",
+      "postal_code" : "12345"
+   }
+}'</span></code></pre>
+<h4>Response Body</h4>
+<pre><code><span class="rules">{<span class="rule">}</span></span></code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span>
+<span class="setting">400 =<span class="value">> Bad Data, or Could not Verify admin information</span></span>
+<span class="setting">449 =<span class="value">> Retry with SSN</span></span></code></pre>
+<h3 id='users/authenticate-user'>Authenticate User</h3 id='users/authenticate-user'>
+<p>To authenticate a user, you can pass in the user&#39;s login credentials, email and
+password, as query parameters.
+
+</p>
+<pre><code><span class="title">GET</span> /users/authentication?email=user<span class="variable">@example</span>.com&amp;password=mypassword</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+   "<span class="attribute">user</span>" : <span class="value">{
+      "<span class="attribute">id</span>" : <span class="value"><span class="string">"USRB07"</span></span>,
+      "<span class="attribute">firstname</span>" : <span class="value"><span class="string">"foo"</span></span>,
+      "<span class="attribute">lastname</span>" : <span class="value"><span class="string">"bar"</span></span>,
+      "<span class="attribute">status</span>" : <span class="value"><span class="number">1</span></span>,
+      "<span class="attribute">img</span>" : <span class="value"><span class="literal">null</span></span>,
+      "<span class="attribute">email</span>" : <span class="value"><span class="string">"user@example.com"</span></span>,
+      "<span class="attribute">verified</span>" : <span class="value"><span class="number">0</span></span>,
+      "<span class="attribute">creation_date</span>" : <span class="value"><span class="string">"2012-09-26T10:22:03.900529000Z"</span></span>,
+      "<span class="attribute">last_login_date</span>" : <span class="value"><span class="string">"2012-09-26T17:22:20Z"</span>
+   </span>}
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">302 =<span class="value">> Found</span></span>
+<span class="setting">401 =<span class="value">> Unauthorized</span></span></code></pre>
+<h3 id='users/get-user'>Get User</h3 id='users/get-user'>
+<pre><code>GET  /users/:id
+
+$ curl -u key:secret \
+<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">user</span>": <span class="value">{
+        "<span class="attribute">id</span>": <span class="value"><span class="string">"USREC5"</span></span>,
+        "<span class="attribute">email</span>": <span class="value"><span class="string">"foo.bar@gmail.com"</span></span>,
+        "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
+        "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
+        "<span class="attribute">is_verified</span>": <span class="value"><span class="number">1</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
+        "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
+        "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
+        "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
+        "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
+        "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
+        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
+        "<span class="attribute">metadata</span>": <span class="value">{}
+    </span>}
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='users/list-users'>List Users</h3 id='users/list-users'>
+<pre><code><span class="title">GET</span> /users
+
+$ curl -u key:secret <span class="url">https://api.crowdtilt.com/v1/users</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">pagination</span>": <span class="value">{
+        "<span class="attribute">total_pages</span>": <span class="value"><span class="number">1</span></span>,
+        "<span class="attribute">page</span>": <span class="value"><span class="number">1</span></span>,
+        "<span class="attribute">total_entries</span>": <span class="value"><span class="number">2</span></span>,
+        "<span class="attribute">per_page</span>": <span class="value"><span class="number">50</span>
+    </span>}</span>,
+    "<span class="attribute">users</span>": <span class="value">[
+        {
+            "<span class="attribute">id</span>": <span class="value"><span class="string">"USREC5"</span></span>,
+            "<span class="attribute">email</span>": <span class="value"><span class="string">"foo.bar@gmail.com"</span></span>,
+            "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
+            "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
+            "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
+            "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+            "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
+            "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
+            "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
+            "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
+            "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
+            "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
+            "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
+            "<span class="attribute">metadata</span>": <span class="value">{}
+        </span>},
+        .
+        .
+        .
+    ]
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='users/update-user'>Update User</h3 id='users/update-user'>
+<p>Currently, this request supports partial PUTs. For example, you can do a request
+to update a single attribute without having to send the full
+<a href="#user-definition">user object</a>.
+
+</p>
+<pre><code><span class="constant">PUT</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">XPUT</span> -<span class="constant">HContent</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
+<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+-<span class="identifier">d</span><span class="string">'
+{
+    "user": {
+        "lastname": "new last name"
+    }
+}'</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">user</span>": <span class="value">{
+        "<span class="attribute">id</span>": <span class="value"><span class="string">"USREC5"</span></span>,
+        "<span class="attribute">email</span>": <span class="value"><span class="string">"foo.bar@gmail.com"</span></span>,
+        "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
+        "<span class="attribute">lastname</span>": <span class="value"><span class="string">"new last name"</span></span>,
+        "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
+        "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
+        "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
+        "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
+        "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
+        "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
+        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
+        "<span class="attribute">metadata</span>": <span class="value">{}
+    </span>}
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='user-campaigns'>User Campaigns</h2 id='user-campaigns'>
+<h3 id='user-campaigns/get-user-campaigns'>Get User Campaigns</h3 id='user-campaigns/get-user-campaigns'>
+<p>This resource returns all the campaigns that the user has created as well as the
+campaigns that he paid for.
+
+</p>
+<pre><code>GET /users/:id/campaigns
+
+$ curl -u key:secret \
+<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"pagination"</span>: {
+        <span class="string">"total_pages"</span>: <span class="number">0</span>,
+        <span class="string">"page"</span>: <span class="number">1</span>,
+        <span class="string">"total_entries"</span>: <span class="number">0</span>,
+        <span class="string">"per_page"</span>: <span class="number">50</span>
+    },
+    <span class="string">"campaigns"</span>: [
+        {
+            <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+            <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+            <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+            <span class="string">"description"</span>: <span class="string">"some description"</span>,
+            <span class="string">"privacy"</span>: <span class="number">1</span>,
+            <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+            <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+            <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+            <span class="string">"is_paid"</span>: <span class="number">0</span>,
+            <span class="string">"is_expired"</span>: <span class="number">0</span>,
+            <span class="string">"tax_id"</span>: null,
+            <span class="string">"tax_name"</span>: null,
+            <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+            <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+            <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+            <span class="string">"metadata"</span>: { },
+            <span class="string">"stats"</span>: {
+                <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+                <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+                <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+                <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+            }
+        },
+        .
+        .
+        .
+    ]
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-campaigns/get-user-campaign'>Get User Campaign</h3 id='user-campaigns/get-user-campaign'>
+<p>This resource returns a specific campaign created by this user.
+
+</p>
+<pre><code><span class="constant">GET</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">campaigns</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span>/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+   <span class="string">"campaign"</span> : {
+      <span class="string">"img"</span> : null,
+      <span class="string">"metadata"</span> : { },
+      <span class="string">"id"</span> : <span class="string">"CMP96B"</span>,
+      <span class="string">"is_paid"</span> : <span class="number">0</span>,
+      <span class="string">"privacy"</span> : <span class="number">1</span>,
+      <span class="string">"is_expired"</span> : <span class="number">1</span>,
+      <span class="string">"fixed_payment_amount"</span> : <span class="number">0</span>,
+      <span class="string">"tilt_amount"</span> : <span class="number">100</span>,
+      <span class="string">"description"</span> : <span class="string">"some description"</span>,
+      <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B"</span>,
+      <span class="string">"creation_date"</span> : <span class="string">"2012-10-19T15:09:01.869085000Z"</span>,
+      <span class="string">"first_contributor"</span> : { <span class="string">"id"</span> : <span class="string">"USR123"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR123"</span>, <span class="keyword">...</span> },
+      <span class="string">"tilter"</span> : { <span class="string">"id"</span> : <span class="string">"USR456"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR456"</span>, <span class="keyword">...</span> },
+      <span class="string">"user_id"</span> : <span class="string">"USR521"</span>,
+      <span class="string">"title"</span> : <span class="string">"some title"</span>,
+      <span class="string">"modification_date"</span> : <span class="string">"2012-10-19T15:09:01.869085000Z"</span>,
+      <span class="string">"stats"</span> : {
+         <span class="string">"tilt_percent"</span> : <span class="number">0</span>,
+         <span class="string">"raised_amount"</span> : <span class="number">0</span>,
+         <span class="string">"unique_contributors"</span> : <span class="number">0</span>,
+         <span class="string">"number_of_payments"</span> : <span class="number">0</span>
+      },
+      <span class="string">"expiration_date"</span> : <span class="string">"2000-01-02T01:02:03Z"</span>,
+      <span class="string">"is_tilted"</span> : <span class="number">0</span>,
+      <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="keyword">...</span> },
+      <span class="string">"min_payment_amount"</span> : <span class="number">0</span>,
+      <span class="string">"tax_id"</span> : null,
+      <span class="string">"tax_name"</span> : null,
+      <span class="string">"payments_uri"</span> : <span class="string">"/v1/campaigns/CMP96B/payments"</span>
+   }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-campaigns/get-user-paid-campaigns'>Get User Paid Campaigns</h3 id='user-campaigns/get-user-paid-campaigns'>
+<p>This resource returns all the campaigns that the user paid for.
+
+</p>
+<pre><code>GET /users/:id/paid_campaigns
+
+$ curl -u key:secret \
+<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns/CMP96B</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"pagination"</span>: {
+        <span class="string">"total_pages"</span>: <span class="number">0</span>,
+        <span class="string">"page"</span>: <span class="number">1</span>,
+        <span class="string">"total_entries"</span>: <span class="number">0</span>,
+        <span class="string">"per_page"</span>: <span class="number">50</span>
+    },
+    <span class="string">"campaigns"</span>: [
+        {
+            <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+            <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+            <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+            <span class="string">"description"</span>: <span class="string">"some description"</span>,
+            <span class="string">"privacy"</span>: <span class="number">1</span>,
+            <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+            <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+            <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+            <span class="string">"is_paid"</span>: <span class="number">0</span>,
+            <span class="string">"is_expired"</span>: <span class="number">0</span>,
+            <span class="string">"tax_id"</span>: null,
+            <span class="string">"tax_name"</span>: null,
+            <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+            <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+            <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+            <span class="string">"metadata"</span>: { },
+            <span class="string">"stats"</span>: {
+                <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+                <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+                <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+                <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+            }
+        },
+        .
+        .
+        .
+    ]
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='user-cards'>User Cards</h2 id='user-cards'>
+<h3 id='user-cards/create-user-card'>Create User Card</h3 id='user-cards/create-user-card'>
+<pre><code><span class="constant">POST</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">cards</span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">XPOST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> -<span class="constant">HContent</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span>\
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>\
+-<span class="identifier">d</span><span class="string">'
+{
+    "card": {
+        "expiration_year":2023,
+        "security_code":123,
+        "expiration_month":"01",
+        "card_number":"4111111111111111"
+    }
+}
+'</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"cards"</span> : [
+          {
+             <span class="string">"last_four"</span> : <span class="string">"1111"</span>,
+             <span class="string">"expiration_year"</span> : <span class="number">2023</span>,
+             <span class="string">"expiration_month"</span> : <span class="string">"01"</span>,
+             <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR50A"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR50A"</span>, <span class="keyword">...</span> },
+             <span class="string">"uri"</span> : <span class="string">"/v1/users/USR50A/cards/CCP6D6"</span>,
+             <span class="string">"card_type"</span> : <span class="string">"VISA card"</span>,
+             <span class="string">"creation_date"</span> : <span class="string">"2012-08-23T07:42:46.134467000Z"</span>,
+             <span class="string">"metadata"</span> : {},
+             <span class="string">"id"</span> : <span class="string">"CCP6D6E7E7C0C5C11E2BD7001E2CFE628C0"</span>
+          },
+          <span class="keyword">...</span>
+      ]
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">201 =<span class="value">> Created</span></span></code></pre>
+<h3 id='user-cards/get-user-card'>Get User Card</h3 id='user-cards/get-user-card'>
+<pre><code><span class="constant">GET</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">cards</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>/<span class="constant">CCP6D6</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"card"</span>: {
+        <span class="string">"last_four"</span> : <span class="string">"1234"</span>,
+            <span class="string">"expiration_year"</span> : <span class="number">2034</span>,
+            <span class="string">"expiration_month"</span> : <span class="string">"04"</span>,
+            <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR50A"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR50A"</span>, <span class="keyword">...</span> },
+            <span class="string">"uri"</span> : <span class="string">"/v1/users/USR50A/cards/CCP6D6"</span>,
+            <span class="string">"card_type"</span> : null,
+            <span class="string">"creation_date"</span> : <span class="string">"2012-08-23T07:42:46.134467000Z"</span>,
+            <span class="string">"metadata"</span> : {},
+            <span class="string">"id"</span> : <span class="string">"CCP6D6E7E7C0C5C11E2BD7001E2CFE628C0"</span>
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-cards/list-user-cards'>List User Cards</h3 id='user-cards/list-user-cards'>
+<h4>Request</h4>
+<pre><code><span class="title">GET</span> /users/:id/cards</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">pagination</span>": <span class="value">{
+        "<span class="attribute">total_pages</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">page</span>": <span class="value"><span class="number">1</span></span>,
+        "<span class="attribute">total_entries</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">per_page</span>": <span class="value"><span class="number">50</span>
+    </span>}</span>,
+    "<span class="attribute">cards</span>": <span class="value">[]
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-cards/update-user-card'>Update User Card</h3 id='user-cards/update-user-card'>
+<p>Card information cannot be updated once it is set.  You can however, modify
+the <code>metadata</code> of a Card. That is the only thing modifiable with this
+request.  Other fields submitted will be ignored.
+
+</p>
+<pre><code>PUT /users/:<span class="keyword">id</span>/cards/:<span class="keyword">id</span></code></pre>
+<h4>Request Body</h4>
+<pre><code>{
+    "<span class="attribute">card</span>": <span class="value">{
+        "<span class="attribute">metadata</span>" : <span class="value">{
+            "<span class="attribute">key1</span>" : <span class="value"><span class="string">"value1"</span>
+        </span>}
+    </span>}
+</span>}</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"card"</span>: {
+        <span class="string">"last_four"</span> : <span class="string">"1234"</span>,
+            <span class="string">"expiration_year"</span> : <span class="number">2034</span>,
+            <span class="string">"expiration_month"</span> : <span class="string">"04"</span>,
+            <span class="string">"user"</span>: { <span class="string">"id"</span>: <span class="string">"USR50A"</span>, <span class="keyword">...</span> },
+            <span class="string">"uri"</span> : <span class="string">"/v1/users/USR50A/cards/CCP6D6"</span>,
+            <span class="string">"card_type"</span> : null,
+            <span class="string">"creation_date"</span> : <span class="string">"2012-08-23T07:42:46.134467000Z"</span>,
+            <span class="string">"metadata"</span> : {
+                <span class="string">"key1"</span> : <span class="string">"value1"</span>
+            },
+            <span class="string">"id"</span> : <span class="string">"CCP6D6E7E7C0C5C11E2BD7001E2CFE628C0"</span>
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-cards/delete-user-card'>Delete User Card</h3 id='user-cards/delete-user-card'>
+<pre><code>DELETE /users/:<span class="keyword">id</span>/cards/:<span class="keyword">id</span></code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='user-banks'>User Banks</h2 id='user-banks'>
+<h3 id='user-banks/create-user-bank'>Create User Bank</h3 id='user-banks/create-user-bank'>
+<pre><code><span class="title">POST</span> /users/:id/banks</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"bank"</span>: {
+        <span class="string">"account_number_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"metadata"</span> : {},
+        <span class="string">"id"</span> : <span class="string">"BAP688E65FA0C6D11E28914FE5E5CD73F12"</span>,
+        <span class="string">"name"</span> : <span class="string">"John Doe"</span>,
+        <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR54B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B"</span>, <span class="keyword">...</span> },
+        <span class="string">"bank_code_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B/banks/BAP688"</span>
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">201 =<span class="value">> Created</span></span></code></pre>
+<h3 id='user-banks/get-user-bank'>Get User Bank</h3 id='user-banks/get-user-bank'>
+<pre><code>GET /users/:<span class="keyword">id</span>/banks/:<span class="keyword">id</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"bank"</span> : {
+        <span class="string">"account_number_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"metadata"</span> : {},
+        <span class="string">"id"</span> : <span class="string">"BAP688E65FA0C6D11E28914FE5E5CD73F12"</span>,
+        <span class="string">"name"</span> : <span class="string">"John Doe"</span>,
+        <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR54B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B"</span>, <span class="keyword">...</span> },
+        <span class="string">"bank_code_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B/banks/BAP688"</span>
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-banks/list-user-banks'>List User Banks</h3 id='user-banks/list-user-banks'>
+<p>This resource lists the bank accounts associated with this user.
+
+</p>
+<pre><code><span class="title">GET</span> /users/:id/banks</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"pagination"</span>: {
+        <span class="string">"total_pages"</span>: <span class="number">0</span>,
+        <span class="string">"page"</span>: <span class="number">1</span>,
+        <span class="string">"total_entries"</span>: <span class="number">0</span>,
+        <span class="string">"per_page"</span>: <span class="number">50</span>
+    },
+    <span class="string">"banks"</span>: [
+        {
+            <span class="string">"account_number_last_four"</span> : <span class="string">"1234"</span>,
+            <span class="string">"metadata"</span> : {},
+            <span class="string">"id"</span> : <span class="string">"BAP688E65FA0C6D11E28914FE5E5CD73F12"</span>,
+            <span class="string">"name"</span> : <span class="string">"John Doe"</span>,
+            <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR54B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B"</span>, <span class="keyword">...</span> },
+            <span class="string">"bank_code_last_four"</span> : <span class="string">"1234"</span>,
+            <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B/banks/BAP688"</span>
+        }
+    ]
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-banks/update-user-bank'>Update User Bank</h3 id='user-banks/update-user-bank'>
+<p>Bank information cannot be updated once it is set.  You can however, modify
+the <code>metadata</code> of a bank account. That is the only thing modifiable with this
+request.  Other fields submitted will be ignored.
+
+</p>
+<pre><code>PUT /users/:<span class="keyword">id</span>/banks/:<span class="keyword">id</span></code></pre>
+<h4>Request Body</h4>
+<pre><code>{
+    "<span class="attribute">bank</span>" : <span class="value">{
+        "<span class="attribute">metadata</span>" : <span class="value">{
+            "<span class="attribute">key1</span>" : <span class="value"><span class="string">"value1"</span>
+        </span>}
+    </span>}
+</span>}</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"bank"</span> : {
+        <span class="string">"account_number_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"metadata"</span> : {
+            <span class="string">"key1"</span> : <span class="string">"value1"</span>
+        },
+        <span class="string">"id"</span> : <span class="string">"BAP688E65FA0C6D11E28914FE5E5CD73F12"</span>,
+        <span class="string">"name"</span> : <span class="string">"John Doe"</span>,
+        <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR54B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B"</span>, <span class="keyword">...</span> },
+        <span class="string">"bank_code_last_four"</span> : <span class="string">"1234"</span>,
+        <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B/banks/BAP688"</span>
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='user-banks/delete-user-bank'>Delete User Bank</h3 id='user-banks/delete-user-bank'>
+<pre><code>DELETE /users/:<span class="keyword">id</span>/banks/:<span class="keyword">id</span></code></pre>
+<h3 id='user-banks/response-codes'>Response Codes</h3 id='user-banks/response-codes'>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='user-payments'>User Payments</h2 id='user-payments'>
+<h3 id='user-payments/list-user-payments'>List User Payments</h3 id='user-payments/list-user-payments'>
+<pre><code><span class="title">GET</span> /users/:id/payments</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    "<span class="attribute">pagination</span>": <span class="value">{
+        "<span class="attribute">total_pages</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">page</span>": <span class="value"><span class="number">1</span></span>,
+        "<span class="attribute">total_entries</span>": <span class="value"><span class="number">0</span></span>,
+        "<span class="attribute">per_page</span>": <span class="value"><span class="number">50</span>
+    </span>}</span>,
+    "<span class="attribute">payments</span>": <span class="value">[]
+</span>}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='campaign-resources'>Campaign Resources</h2 id='campaign-resources'>
+<ul>
+<li><a href="#campaigns">Campaigns</a></li>
+<li><a href="#campaign-payments">Campaign Payments</a></li>
+<li><a href="#refunds">Refunds</a></li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>HTTP Methods</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/campaigns</td>
+            <td>
+                <a href="#list-campaigns">GET</a>
+                <a href="#create-campaign">POST</a>
+            </td>
+            <td> List of campaigns </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id</td>
+            <td>
+                <a href="#get-campaign">GET</a>
+                <a href="#update-campaign">PUT</a>
+            </td>
+            <td> A specific campaign </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/payments</td>
+            <td>
+                <a href="#get-campaign-payments">GET</a>
+                <a href="#create-campaign-payment">POST</a>
+            </td>
+            <td> Campaign Payments </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/payments/:id</td>
+            <td>
+                <a href="#get-campaign-payment">GET</a>
+            </td>
+            <td> Details about a specific payment </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/payments/:id/refund</td>
+            <td>
+                <a href="#refund-a-payment">POST</a>
+            </td>
+            <td> Refunding a specific payment </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/comments</td>
+            <td>
+                <a href="#get-campaign-comments">GET</a>
+                <a href="#create-campaign-comment">POST</a>
+            </td>
+            <td> Campaign Comments </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/comments/:id</td>
+            <td>
+                <a href="#get-campaign-comment">GET</a>
+                <a href="#update-campaign-comment">PUT</a>
+                <a href="#delete-campaign-comment">DELETE</a>
+            </td>
+            <td> Details about (or delete) a specific comment </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id='campaigns'>Campaigns</h2 id='campaigns'>
+<h3 id='campaigns/create-campaign'>Create Campaign</h3 id='campaigns/create-campaign'>
+<p>A campaign needs to be associated to a user. We refer to this user as the
+&quot;campaign admin&quot;. Campaign admins can create campaigns without having to be
+verified. However, they need to be
+<a href="#verify-user">verified</a> in order to <a href="#create-user-bank">set up their bank account details</a>
+and then be able to receive the money collected in their campaign.
+
+</p>
+<pre><code><span class="title">POST</span> /campaigns</code></pre>
+<h4>Request Body</h4>
+<pre><code>{
+    "<span class="attribute">campaign</span>": <span class="value">{
+        "<span class="attribute">user_id</span>":<span class="value"><span class="string">"USREC5"</span></span>,
+        "<span class="attribute">title</span>":<span class="value"><span class="string">"Campaign Title"</span></span>,
+        "<span class="attribute">description</span>":<span class="value"><span class="string">"some description"</span></span>,
+        "<span class="attribute">expiration_date</span>":<span class="value"><span class="string">"2000-01-02T01:02:03Z"</span></span>,
+        "<span class="attribute">tilt_amount</span>":<span class="value"><span class="number">100</span>
+    </span>}
+</span>}</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"campaign"</span>: {
+        <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+        <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+        <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+        <span class="string">"description"</span>: <span class="string">"some description"</span>,
+        <span class="string">"privacy"</span>: <span class="number">1</span>,
+        <span class="string">"type"</span>: <span class="number">1</span>,
+        <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+        <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"img"</span>: null,
+        <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+        <span class="string">"is_paid"</span>: <span class="number">0</span>,
+        <span class="string">"is_expired"</span>: <span class="number">0</span>,
+        <span class="string">"tax_id"</span>: null,
+        <span class="string">"tax_name"</span>: null,
+        <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+        <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+        <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+        <span class="string">"metadata"</span>: { },
+        <span class="string">"stats"</span>: {
+            <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+            <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+            <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+            <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+        }
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">201 =<span class="value">> Created</span></span></code></pre>
+<h3 id='campaigns/get-campaign'>Get Campaign</h3 id='campaigns/get-campaign'>
+<pre><code><span class="title">GET</span>  /campaigns/:id</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"campaign"</span>: {
+        <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+        <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+        <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+        <span class="string">"description"</span>: <span class="string">"some description"</span>,
+        <span class="string">"privacy"</span>: <span class="number">1</span>,
+        <span class="string">"type"</span>: <span class="number">1</span>,
+        <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+        <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+        <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+        <span class="string">"is_paid"</span>: <span class="number">0</span>,
+        <span class="string">"is_expired"</span>: <span class="number">0</span>,
+        <span class="string">"tax_id"</span>: null,
+        <span class="string">"tax_name"</span>: null,
+        <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+        <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+        <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+        <span class="string">"metadata"</span>: { },
+        <span class="string">"stats"</span>: {
+            <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+            <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+            <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+            <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+        }
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaigns/list-campaigns'>List campaigns</h3 id='campaigns/list-campaigns'>
+<pre><code><span class="title">GET</span> /campaigns</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"pagination"</span>: {
+        <span class="string">"total_pages"</span>: <span class="number">34337</span>,
+        <span class="string">"page"</span>: <span class="number">1</span>,
+        <span class="string">"total_entries"</span>: <span class="number">1716893</span>,
+        <span class="string">"per_page"</span>: <span class="number">50</span>
+    },
+    <span class="string">"campaigns"</span>: [
+        {
+            <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+            <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+            <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+            <span class="string">"description"</span>: <span class="string">"some description"</span>,
+            <span class="string">"privacy"</span>: <span class="number">1</span>,
+            <span class="string">"type"</span>: <span class="number">1</span>,
+            <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+            <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+            <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+            <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+            <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+            <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+            <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+            <span class="string">"is_paid"</span>: <span class="number">0</span>,
+            <span class="string">"is_expired"</span> : <span class="number">0</span>,
+            <span class="string">"tax_id"</span>: null,
+            <span class="string">"tax_name"</span>: null,
+            <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+            <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+            <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+            <span class="string">"metadata"</span>: { },
+            <span class="string">"stats"</span>: {
+                <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+                <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+                <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+                <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+            }
+        },
+        .
+        .
+        .
+    ]
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaigns/update-campaign'>Update Campaign</h3 id='campaigns/update-campaign'>
+<p>Currently, this request supports partial PUTs. For example, you can do a request
+to update a single attribute without having to send the full <a href="/Crowdtilt/crowdtilt-api-spec/blob/master/objects/README.md#campaign">campaign object</a>.
+
+</p>
+<pre><code><span class="title">PUT</span> /campaigns/:id</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+    <span class="string">"campaign"</span>: {
+        <span class="string">"id"</span>: <span class="string">"CMPBDA"</span>,
+        <span class="string">"user_id"</span>: <span class="string">"USREC5"</span>,
+        <span class="string">"title"</span>: <span class="string">"Campaign Title"</span>,
+        <span class="string">"description"</span>: <span class="string">"some description"</span>,
+        <span class="string">"privacy"</span>: <span class="number">1</span>,
+        <span class="string">"type"</span>: <span class="number">1</span>,
+        <span class="string">"tilt_amount"</span>: <span class="number">100</span>,
+        <span class="string">"min_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"fixed_payment_amount"</span>: <span class="number">0</span>,
+        <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
+        <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+        <span class="string">"is_tilted"</span>: <span class="number">0</span>,
+        <span class="string">"is_paid"</span>: <span class="number">0</span>,
+        <span class="string">"is_expired"</span>: <span class="number">0</span>,
+        <span class="string">"tax_id"</span>: null,
+        <span class="string">"tax_name"</span>: null,
+        <span class="string">"uri"</span>: <span class="string">"/v1/campaigns/CMPBDA"</span>,
+        <span class="string">"admin"</span>: { <span class="string">"id"</span>: <span class="string">"USREC5"</span>, <span class="string">"uri"</span>: <span class="string">"/v1/users/USREC5"</span>, <span class="keyword">...</span> },
+        <span class="string">"payments_uri"</span>: <span class="string">"/v1/campaigns/CMPBDA/payments"</span>,
+        <span class="string">"metadata"</span>: { },
+        <span class="string">"stats"</span>: {
+            <span class="string">"tilt_percent"</span>: <span class="number">0</span>,
+            <span class="string">"raised_amount"</span>: <span class="number">0</span>,
+            <span class="string">"unique_contributors"</span>: <span class="number">0</span>,
+            <span class="string">"number_of_payments"</span>: <span class="number">0</span>
+        }
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='campaign-payments'>Campaign Payments</h2 id='campaign-payments'>
+<h3 id='campaign-payments/create-campaign-payment'>Create campaign payment</h3 id='campaign-payments/create-campaign-payment'>
+<p>Before a user is able to contribute, they need to have a Credit Card associated
+to them.  All amounts and prices used in this API are <em>always</em> in cents.
+
+</p>
+<p>When creating a payment, the <code>amount</code> field determines how much money is
+going to the campaign.  The <code>user_fee_amount</code> accepts a value that will be
+charged to the paying user, on top of the <code>amount</code>, and the <code>admin_fee_amount</code>
+will be taken out of the money that goes to the campaign admin when the campaign
+tilts.
+
+</p>
+<p>For example, if a user wants to pay <code>$20.00</code> to a campaign, and you want to add
+a 2% fee to the user, you would send <code>amount</code> as <code>2000</code> and <code>user_fee_amount</code> as
+<code>40</code> (2% of the <code>$20.00</code>).  The users credit card would then be charged
+<code>$20.40</code>.  In the same scenario, if you wanted to charge 2% from the admin
+when the campaign tilts, you would set <code>admin_fee_amount</code> to <code>40</code> and on tilt
+the admin will only receive <code>$19.60</code> from the <code>$20.00</code> payment.
+
+</p>
+<pre><code><span class="title">POST</span> /campaigns/:id/payments
+
+{
+    "payment": {
+        "amount" : 2000,
+        "user_fee_amount" : 40,
+        "admin_fee_amount" : 40,
+        "user_id": "USR521",
+        "card_id": "CCPC41"
+    }
+}</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+   <span class="string">"payment"</span> : {
+      <span class="string">"status"</span> : <span class="string">"charged"</span>,
+      <span class="string">"modification_date"</span> : <span class="string">"2012-10-20T15:45:47Z"</span>,
+      <span class="string">"metadata"</span> : {},
+      <span class="string">"id"</span> : <span class="string">"CON233"</span>,
+      <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B/payments/CON233"</span>,
+      <span class="string">"amount"</span> : <span class="number">2000</span>,
+      <span class="string">"user_fee_amount"</span> : <span class="number">40</span>,
+      <span class="string">"admin_fee_amount"</span> : <span class="number">40</span>,
+      <span class="string">"creation_date"</span> : <span class="string">"2012-10-20T15:45:13Z"</span>,
+      <span class="string">"campaign"</span> : { <span class="string">"id"</span>: <span class="string">"CMP96B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B"</span>, <span class="keyword">...</span> },
+      <span class="string">"card"</span> : { <span class="string">"id"</span> : <span class="string">"CCPC41"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521/cards/CCPC41"</span>, <span class="keyword">...</span> },
+      <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR521"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521"</span>, <span class="keyword">...</span> },
+   }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">201 =<span class="value">> Created</span></span></code></pre>
+<h3 id='campaign-payments/get-campaign-payment'>Get campaign payment</h3 id='campaign-payments/get-campaign-payment'>
+<pre><code>GET /campaigns/:<span class="keyword">id</span>/payments/:<span class="keyword">id</span></code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+   <span class="string">"payment"</span> : {
+      <span class="string">"status"</span> : <span class="string">"charged"</span>,
+      <span class="string">"modification_date"</span> : <span class="string">"2012-10-20T15:45:47Z"</span>,
+      <span class="string">"metadata"</span> : {},
+      <span class="string">"id"</span> : <span class="string">"CON233"</span>,
+      <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B/payments/CON233"</span>,
+      <span class="string">"amount"</span> : <span class="number">2000</span>,
+      <span class="string">"user_fee_amount"</span> : <span class="number">40</span>,
+      <span class="string">"admin_fee_amount"</span> : <span class="number">40</span>,
+      <span class="string">"creation_date"</span> : <span class="string">"2012-10-20T15:45:13Z"</span>,
+      <span class="string">"campaign"</span> : { <span class="string">"id"</span>: <span class="string">"CMP96B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B"</span>, <span class="keyword">...</span> },
+      <span class="string">"card"</span> : { <span class="string">"id"</span> : <span class="string">"CCPC41"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521/cards/CCPC41"</span>, <span class="keyword">...</span> },
+      <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR521"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521"</span>, <span class="keyword">...</span> },
+   }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaign-payments/get-campaign-payments'>Get campaign payments</h3 id='campaign-payments/get-campaign-payments'>
+<pre><code><span class="title">GET</span> /campaigns/:id/payments</code></pre>
+<h4>Response Body</h4>
+<pre><code>{
+   <span class="string">"payments"</span> : [
+      {
+         <span class="string">"status"</span> : <span class="string">"charged"</span>,
+         <span class="string">"modification_date"</span> : <span class="string">"2012-10-20T15:45:47Z"</span>,
+         <span class="string">"metadata"</span> : {},
+         <span class="string">"id"</span> : <span class="string">"CON233"</span>,
+         <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B/payments/CON233"</span>,
+         <span class="string">"amount"</span> : <span class="number">2000</span>,
+         <span class="string">"user_fee_amount"</span> : <span class="number">40</span>,
+         <span class="string">"admin_fee_amount"</span> : <span class="number">40</span>,
+         <span class="string">"creation_date"</span> : <span class="string">"2012-10-20T15:45:13Z"</span>,
+         <span class="string">"campaign"</span> : { <span class="string">"id"</span>: <span class="string">"CMP96B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMP96B"</span>, <span class="keyword">...</span> },
+         <span class="string">"card"</span> : { <span class="string">"id"</span> : <span class="string">"CCPC41"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521/cards/CCPC41"</span>, <span class="keyword">...</span> },
+         <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR521"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR521"</span>, <span class="keyword">...</span> },
+      }
+   ],
+   <span class="string">"pagination"</span> : {
+      <span class="string">"total_pages"</span> : <span class="number">1</span>,
+      <span class="string">"page"</span> : <span class="number">1</span>,
+      <span class="string">"total_entries"</span> : <span class="number">1</span>,
+      <span class="string">"per_page"</span> : <span class="number">50</span>
+   }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='refunds'>Refunds</h2 id='refunds'>
+<h3 id='refunds/refund-a-payment'>Refund a payment</h3 id='refunds/refund-a-payment'>
+<p>In order to refund a payment, simply POST with an empty body to the payment&#39;s
+refund subresource.
+
+</p>
+<pre><code><span class="constant">POST</span> /<span class="identifier">campaigns</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">payments</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">refund</span>
+
+<span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">XPOST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
+<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/localhost:5003/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='campaign-comments'>Campaign Comments</h2 id='campaign-comments'>
+<h3 id='campaign-comments/create-campaign-comment'>Create Campaign Comment</h3 id='campaign-comments/create-campaign-comment'>
+<p>To create a comment, POST to <code>/campaigns/:id/comments</code>.
+The only required fields are the <code>user_id</code> of the comment author
+and the <code>body</code> of the comment.
+The <code>title</code>, <code>parent_id</code>, and <code>score</code> fields are optional.
+The <code>parent_id</code> is the id of the parent of this comment, i.e.,
+the comment that this comment is a reply to.
+This only matters if you want to support nested comments.
+You may provide a <code>parent_id</code> of null for top-level comments.
+The purpose of the <code>score</code> field is to provide support for voting on comments.
+
+</p>
+<pre><code><span class="title">POST</span> /campaigns/:id/comments
+
+{
+    "comment" : {
+        "user_id' : "USR123",
+        "title" : "<span class="title">Optional</span> Title<span class="string">",
+        "</span>body<span class="string">" : "</span>Comment Body<span class="string">",
+        "</span>score<span class="string">" : 1,
+        "</span>parent_id<span class="string">" : null
+    }
+}</code></pre>
+<h4>Response</h4>
+<pre><code>{
+    "comment" : {
+        "id" : "CMT123",
+        "user_id' : "USR123",
+        "title" : "<span class="title">Optional</span> Title<span class="string">",
+        "</span>body<span class="string">" : "</span>Comment Body<span class="string">",
+        "</span>score<span class="string">" : 1,
+        "</span>parent_id<span class="string">" : null,
+        "</span>metadata<span class="string">" : { },
+        "</span>creation_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">",
+        "</span>modification_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">"
+    }
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaign-comments/get-campaign-comments'>Get Campaign Comments</h3 id='campaign-comments/get-campaign-comments'>
+<h4>Response</h4>
+<pre><code>{
+    <span class="string">"comments"</span> :<span class="sqbracket"> [
+        {
+            "id" : "CMT123",
+            "user_id' : "USR123",
+            "title" : "Optional Title",
+            "body" : "Comment Body",
+            "score" : 1,
+            "parent_id" : null,
+            "metadata" : { },
+            "creation_date" : "2012-10-01T00:00:00Z",
+            "modification_date" : "2012-10-01T00:00:00Z"
+        },
+        ...
+    ]</span>
+}</code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaign-comments/get-campaign-comment'>Get campaign comment</h3 id='campaign-comments/get-campaign-comment'>
+<pre><code>GET /campaigns/:<span class="keyword">id</span>/comments/:<span class="keyword">id</span></code></pre>
+<h4>Response</h4>
+<pre><code>{
+    "comment" : {
+        "id" : "CMT123",
+        "user_id' : "USR123",
+        "title" : "<span class="title">Optional</span> Title<span class="string">",
+        "</span>body<span class="string">" : "</span>Comment Body<span class="string">",
+        "</span>score<span class="string">" : 1,
+        "</span>parent_id<span class="string">" : null,
+        "</span>metadata<span class="string">" : { },
+        "</span>creation_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">",
+        "</span>modification_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">"
+    }
+}</code></pre>
+<h4>Response Code</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaign-comments/update-campaign-comment'>Update campaign comment</h3 id='campaign-comments/update-campaign-comment'>
+<p>Currently you can only alter the score and the metadata of a comment.
+
+</p>
+<pre><code>PUT /campaigns/:<span class="keyword">id</span>/comments/:<span class="keyword">id</span></code></pre>
+<h4>Request</h4>
+<pre><code>{
+    "<span class="attribute">comment</span>" : <span class="value">{
+        "<span class="attribute">score</span>" : <span class="value"><span class="number">2</span></span>,
+        "<span class="attribute">metadata</span>" : <span class="value">{
+            "<span class="attribute">key</span>" : <span class="value"><span class="string">"value"</span></span>,
+        }
+    </span>}
+</span>}</code></pre>
+<h4>Response</h4>
+<pre><code>{
+    "comment" : {
+        "id" : "CMT123",
+        "user_id' : "USR123",
+        "title" : "<span class="title">Optional</span> Title<span class="string">",
+        "</span>body<span class="string">" : "</span>Comment Body<span class="string">",
+        "</span>score<span class="string">" : 2,
+        "</span>parent_id<span class="string">" : null,
+        "</span>metadata<span class="string">" : {
+        "</span>key<span class="string">" : "</span>value<span class="string">",
+        },
+        "</span>creation_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">",
+        "</span>modification_date<span class="string">" : "</span><span class="number">2012</span>-<span class="number">10</span>-01T00:<span class="number">00</span>:00Z<span class="string">"
+    }
+}</code></pre>
+<h4>Response Code</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h3 id='campaign-comments/delete-a-comment'>Delete a comment</h3 id='campaign-comments/delete-a-comment'>
+<pre><code>DELETE /campaigns/:<span class="keyword">id</span>/comments/:<span class="keyword">id</span></code></pre>
+<h4>Response Codes</h4>
+<pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='examples'>Examples</h2 id='examples'>
+<p>TODO: Fill
+
+
+</p>
+<h2 id='user-definition'>User Definition</h2 id='user-definition'>
+<table>
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>A unique identifier for the user</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>Email address</td>
+        </tr>
+        <tr>
+            <td>firstname</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>The first name of the user</td>
+        </tr>
+        <tr>
+            <td>lastname</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>The last name of the user</td>
+        </tr>
+        <tr>
+            <td>is_verified</td>
+            <td>integer</td>
+            <td>Auto generated and read-only</td>
+            <td>Whether this user is verified to receive money</td>
+        </tr>
+        <tr>
+            <td>img</td>
+            <td>string</td>
+            <td>No</td>
+            <td>A url for user&#39;s image</td>
+        </tr>
+        <tr>
+            <td>creation_date</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>It is ISO8601 DateTime format</td>
+        </tr>
+        <tr>
+            <td>last_login_date</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>It is ISO8601 DateTime format</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for this user resource</td>
+        </tr>
+        <tr>
+            <td>campaigns_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for listing user&#39;s campaigns</td>
+        </tr>
+        <tr>
+            <td>paid_campaigns_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for listing the campaigns the user paid for</td>
+        </tr>
+        <tr>
+            <td>payments_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for the user&#39;s payments</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id='campaign-definition'>Campaign Definition</h2 id='campaign-definition'>
+<table>
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>A unique identifier for the campaign</td>
+        </tr>
+        <tr>
+            <td>user_id</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>The id of the campaign admin</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>The title of the campaign</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>The description of the campaign</td>
+        </tr>
+        <tr>
+            <td>is_expired</td>
+            <td>number</td>
+            <td>No</td>
+            <td>Whether or not the campaign is expired
+                <table>
+                    <tr>
+                        <td>Value</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Not Expired</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Expired</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>privacy</td>
+            <td>number</td>
+            <td>No</td>
+            <td>The privacy settings for the campaign. It defaults to 1.
+            Available values
+                <table>
+                    <tr>
+                        <td>Value</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>public</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>private</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>tilt_amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>The amount required to tilt the campaign. This amount is in
+            cents. After the campaign raises enough funds equal or more than
+            this amount, the credit cards will get charged. Before that, cards
+            are authorized only.
+            </td>
+        </tr>
+        <tr>
+            <td>min_payment_amount</td>
+            <td>number</td>
+            <td>No</td>
+            <td>The minimum amount for a single payment. This amount is in
+            cents.</td>
+        </tr>
+        <tr>
+            <td>fixed_payment_amount</td>
+            <td>number</td>
+            <td>No</td>
+            <td>If this amount is set, each payment will have to be exactly
+            this amount or multiples of it. This amount is in cents.</td>
+        </tr>
+        <tr>
+            <td>expiration_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Yes</td>
+            <td>The expiration date of the campaign</td>
+        </tr>
+        <tr>
+            <td>creation_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The creation date of the campaign</td>
+        </tr>
+        <tr>
+            <td>modification_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The modification date of the campaign</td>
+        </tr>
+        <tr>
+            <td>is_tilted</td>
+            <td>number</td>
+            <td>Read-only</td>
+            <td>Indicates whether or not the campaign has tilted</td>
+        </tr>
+        <tr>
+            <td>is_paid</td>
+            <td>number</td>
+            <td>Read-only</td>
+            <td>Indicates whether or not the campaign funds has been paid to the
+            admin</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>number</td>
+            <td>No</td>
+            <td>The type of the campaign. Available values
+                <table>
+                    <tr>
+                        <td>Value</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Friendly</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>non-profit</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>tax_id</td>
+            <td>string</td>
+            <td>No</td>
+            <td>The EIN for a business or non-profit organization. This
+            attribute is required only if the campaign type is a non-profit.
+            </td>
+        </tr>
+        <tr>
+            <td>tax_name</td>
+            <td>string</td>
+            <td>No</td>
+            <td>The name of the business or non-profit</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for this campaign resource</td>
+        </tr>
+        <tr>
+            <td>admin</td>
+            <td>JSON object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign&#39;s admin</td>
+        </tr>
+        <tr>
+            <td>payments_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for the payments on this campaign</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id='payment-definition'>Payment Definition</h2 id='payment-definition'>
+<table>
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>A unique identifier for the payment</td>
+        </tr>
+        <tr>
+            <td>amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>The amount of this payment</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>Reflects the status of the payment. Available values:
+                <table>
+                    <tr>
+                        <td>authorized</td>
+                    </tr>
+                    <tr>
+                        <td>charged</td>
+                    </tr>
+                    <tr>
+                        <td>refunded</td>
+                    </tr>
+                    <tr>
+                        <td>rejected</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>creation_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The creation date of the payment</td>
+        </tr>
+        <tr>
+            <td>modification_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The modification date of the payment</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for this campaign resource</td>
+        </tr>
+        <tr>
+            <td>user</td>
+            <td>JSON object</td>
+            <td>Auto generated and read-only</td>
+            <td>The contributor of this payment</td>
+        </tr>
+        <tr>
+            <td>card</td>
+            <td>JSON object</td>
+            <td>Auto generated and read-only</td>
+            <td>The card used for this payment</td>
+        </tr>
+        <tr>
+            <td>campaign</td>
+            <td>JSON object</td>
+            <td>Auto generated and read-only</td>
+            <td>The campaign this payment is for</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h1>Pagination</h1>
+<p>All <code>GET</code> requests on collection resources has pagination enabled with a default
+of <strong>50</strong> entries per page. For example:
+
+</p>
+<pre><code>GET /users
+
+{
+    <span class="string">"pagination"</span>: {
+        <span class="string">"total_pages"</span>: 2,
+        <span class="string">"page"</span>: 1,
+        <span class="string">"total_entries"</span>: 100,
+        <span class="string">"per_page"</span>: 50
+    },
+    <span class="string">"users"</span>:<span class="sqbracket"> [
+        {
+            "id": "USREC5",
+            "email": "foo.bar@gmail.com",
+            "firstname": "Foo",
+            "lastname": "Bar",
+            "img": "http://example.com/profile.png",
+            "status": 1,
+            "verified": 1,
+            "creation_date": "2011-07-02T14:20:48Z",
+            "last_login_date": "2012-09-22T01:55:49Z",
+            "uri": "/v1/users/USREC5",
+            "campaigns_uri": "/v1/users/USREC5/campaigns",
+            "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
+            "payments_uri": "/v1/users/USREC5/payments",
+            "roles" : ["contributor"],
+            "metadata": {}
+        },
+        .
+        .
+        .
+    ]</span>
+}</code></pre>
+<p>The default limits can be changed with <code>per_page</code> and <code>page</code> request
+parameters. For example:
+
+</p>
+<pre><code><span class="title">GET</span> /users?page=<span class="number">2</span>&amp;per_page=<span class="number">10</span></code></pre>
+
+  </div>
+</div></body>
+</html>
