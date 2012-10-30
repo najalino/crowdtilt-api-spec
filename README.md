@@ -1678,7 +1678,10 @@ TODO: Fill
             <td>last_login_date</td>
             <td>string</td>
             <td>Auto generated and read-only</td>
-            <td>It is ISO8601 DateTime format</td>
+            <td>
+                It is ISO8601 DateTime format, updated when a user
+                is authenticated.
+            </td>
         </tr>
         <tr>
             <td>metadata</td>
