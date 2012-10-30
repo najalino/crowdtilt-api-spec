@@ -351,10 +351,9 @@ password, as query parameters.
           "id" : "USRB07",
           "firstname" : "foo",
           "lastname" : "bar",
-          "status" : 1,
           "img" : null,
           "email" : "user@example.com",
-          "verified" : 0,
+          "is_verified" : 0,
           "creation_date" : "2012-09-26T10:22:03.900529000Z",
           "last_login_date" : "2012-09-26T17:22:20Z"
        }
@@ -2076,8 +2075,7 @@ of **50** entries per page. For example:
                 "firstname": "Foo",
                 "lastname": "Bar",
                 "img": "http://example.com/profile.png",
-                "status": 1,
-                "verified": 1,
+                "is_verified": 1,
                 "creation_date": "2011-07-02T14:20:48Z",
                 "last_login_date": "2012-09-22T01:55:49Z",
                 "uri": "/v1/users/USREC5",
