@@ -279,7 +279,6 @@ branch.
             "campaigns_uri": "/v1/users/USREC5/campaigns",
             "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
             "payments_uri": "/v1/users/USREC5/payments",
-            "roles" : ["contributor"],
             "metadata": {}
         }
     }
@@ -390,7 +389,6 @@ password, as query parameters.
             "campaigns_uri": "/v1/users/USREC5/campaigns",
             "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
             "payments_uri": "/v1/users/USREC5/payments",
-            "roles" : ["contributor"],
             "metadata": {}
         }
     }
@@ -429,7 +427,6 @@ password, as query parameters.
                 "campaigns_uri": "/v1/users/USREC5/campaigns",
                 "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
                 "payments_uri": "/v1/users/USREC5/payments",
-                "roles" : ["contributor"],
                 "metadata": {}
             },
             .
@@ -476,7 +473,6 @@ to update a single attribute without having to send the full
             "campaigns_uri": "/v1/users/USREC5/campaigns",
             "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
             "payments_uri": "/v1/users/USREC5/payments",
-            "roles" : ["contributor"],
             "metadata": {}
         }
     }
@@ -2060,7 +2056,6 @@ of **50** entries per page. For example:
                 "campaigns_uri": "/v1/users/USREC5/campaigns",
                 "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
                 "payments_uri": "/v1/users/USREC5/payments",
-                "roles" : ["contributor"],
                 "metadata": {}
             },
             .
