@@ -1755,6 +1755,12 @@ TODO: Fill
             <td>The description of the campaign</td>
         </tr>
         <tr>
+            <td>img</td>
+            <td>string</td>
+            <td>No</td>
+            <td>A URI to an image to be used for the campaign</td>
+        </tr>
+        <tr>
             <td>is_expired</td>
             <td>number</td>
             <td>No</td>
@@ -1888,16 +1894,28 @@ TODO: Fill
             <td>The name of the business or non-profit</td>
         </tr>
         <tr>
+            <td>admin</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign's admin</td>
+        </tr>
+        <tr>
+            <td>tilter</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign's tilter (if tilted)</td>
+        </tr>
+        <tr>
+            <td>first_contributor</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign's first contributor</td>
+        </tr>
+        <tr>
             <td>uri</td>
             <td>string</td>
             <td>Auto generated and read-only</td>
             <td>The uri for this campaign resource</td>
-        </tr>
-        <tr>
-            <td>admin</td>
-            <td>JSON object</td>
-            <td>Auto generated and read-only</td>
-            <td>This campaign's admin</td>
         </tr>
         <tr>
             <td>payments_uri</td>
@@ -1910,6 +1928,12 @@ TODO: Fill
             <td>JSON object</td>
             <td>No</td>
             <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+        <tr>
+            <td>stats</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Statistics information about the campaign.</td>
         </tr>
     </tbody>
 </table>
