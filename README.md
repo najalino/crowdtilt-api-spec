@@ -74,10 +74,10 @@ Here is a full definition for each one of those objects:
 ## Getting Started
 
 The first step is to get an ``API_KEY`` and ``API_SECRET``. During our beta
-program, please contact <a
-href="mailto:support.api@crowdtilt.com?Subject=API%20Creds">support.api@crowdtilt.com</a> to request these.
-Once you receive your Crowdtilt API credentials, you are ready to use the API.
-Remember that all API requests have to go over SSL.
+program, please contact
+[support.api@crowdtilt.com](mailto:support.api@crowdtilt.com?Subject=API%20Creds)
+to request these.  Once you receive your Crowdtilt API credentials, you are
+ready to use the API.  Remember that all API requests have to go over SSL.
 
 
 ### Sandbox Environment
@@ -88,8 +88,8 @@ can use for testing. Use the base URI below:
     https://api-sandbox.crowdtilt.com/v1/
 
 The sandbox environment will be configured with a free Balanced account. If
-you need support for a different payment processor, please <a
-href="mailto:support.api@crowdtilt.com?Subject=API%20Payment%20Processor%20Sandbox">let us know </a>.
+you need support for a different payment processor, please
+[let us know](mailto:support.api@crowdtilt.com?Subject=API%20Payment%20Processor%20Sandbox).
 
 
 ### Authentication
@@ -107,8 +107,8 @@ If the credentials provided were invalid, the API will respond with
 ### Data Formats
 
 Currently, we only support JSON data formats. If you think we should support
-other data formats, please let us know what and why <a
-href="mailto:support.api@crowdtilt.com?Subject=Data%20Formats">support.api@crowdtilt.com</a>.
+other data formats, please let us know what and why
+[support.api@crowdtilt.com](mailto:support.api@crowdtilt.com?Subject=Data%20Formats).
 
 
 ### Client Libraries
