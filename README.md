@@ -2060,6 +2060,130 @@ TODO: Fill
 </table>
 
 
+## Settlement Definition
+
+<table>
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>A unique identifier for the payment</td>
+        </tr>
+        <tr>
+            <td>admin_amount</td>
+            <td>number</td>
+            <td>Auto generated and read-only</td>
+            <td>
+                The amount of this payment that is going to the admin bank
+                account (the bank account shown in the `bank` sub-object).
+            </td>
+        </tr>
+        <tr>
+            <td>escrow_amount</td>
+            <td>number</td>
+            <td>Auto generated and read-only</td>
+            <td>
+                The amount of this payment that is going into the API Users
+                escrow account.
+            </td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>Reflects the status of the settlement. Available values:
+                <table>
+                    <tr>
+                        <td>Value</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td>needs bank account</td>
+                        <td>Cannot submit until bank account is added</td>
+                    </tr>
+                    <tr>
+                        <td>pending</td>
+                        <td>Settlement has been sent and is pending</td>
+                    </tr>
+                    <tr>
+                        <td>rejected</td>
+                        <td>
+                            Settlement was rejected, usually due to invalid
+                            bank account information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>re-sent pending</td>
+                        <td>
+                            Pending again after a re-try if this
+                            settlement was previously rejected
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>cleared</td>
+                        <td>
+                            The settlement has successfully cleared
+                            the users bank account.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>creation_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The creation date of the settlement</td>
+        </tr>
+        <tr>
+            <td>modification_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The modification date of the settlement</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for this settlement</td>
+        </tr>
+        <tr>
+            <td>user</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>The user who received this settlement</td>
+        </tr>
+        <tr>
+            <td>bank</td>
+            <td>JSON Bank object</td>
+            <td>Auto generated and read-only</td>
+            <td>The bank account that received this settlement</td>
+        </tr>
+        <tr>
+            <td>campaign</td>
+            <td>JSON Campaign object</td>
+            <td>Auto generated and read-only</td>
+            <td>The campaign this payment is for</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+    </tbody>
+</table>
+
+
 # Pagination
 
 All ``GET`` requests on collection resources has pagination enabled with a default
