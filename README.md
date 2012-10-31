@@ -1922,6 +1922,12 @@ TODO: Fill
             <td>The uri for the payments on this campaign</td>
         </tr>
         <tr>
+            <td>settlements_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri with the settlements for this campaign</td>
+        </tr>
+        <tr>
             <td>metadata</td>
             <td>JSON object</td>
             <td>No</td>
