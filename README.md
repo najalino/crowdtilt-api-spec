@@ -946,7 +946,7 @@ request.  Other fields submitted will be ignored.
 * [Campaigns](#campaigns)
 * [Campaign Payments](#campaign-payments)
 * [Refunds](#refunds)
-* [Campaign Settlements](#campaign-payments)
+* [Campaign Settlements](#campaign-settlements)
 * [Campaign Comments](#campaign-comments)
 
 <table>
