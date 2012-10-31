@@ -275,6 +275,27 @@
         </li>
       
         <li>
+          <a href="#campaign-settlements">Campaign Settlements</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#campaign-settlements/list-campaign-settlements">List Campaign Settlements</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-settlements/get-campaign-settlement">Get Campaign Settlement</a>
+                </li>
+              
+                <li>
+                  <a href="#campaign-settlements/update-campaign-settlement-bank">Update Campaign Settlement Bank</a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
           <a href="#campaign-comments">Campaign Comments</a>
           
             <ul>
@@ -320,6 +341,11 @@
       
         <li>
           <a href="#payment-definition">Payment Definition</a>
+          
+        </li>
+      
+        <li>
+          <a href="#settlement-definition">Settlement Definition</a>
           
         </li>
       
@@ -372,6 +398,7 @@
 <li><a href="#campaigns">Campaigns</a></li>
 <li><a href="#campaign-payments">Campaign Payments</a></li>
 <li><a href="#refunds">Refunds</a></li>
+<li><a href="#campaign-settlements">Campaign Settlements</a></li>
 <li><a href="#campaign-comments">Campaign Comments</a></li>
 </ul>
 </li>
@@ -413,9 +440,10 @@ was created.
 </p>
 <h2 id='getting-started'>Getting Started</h2 id='getting-started'>
 <p>The first step is to get an <code>API_KEY</code> and <code>API_SECRET</code>. During our beta
-program, please contact <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#10;&#x68;&#x72;&#101;&#102;&#x3d;&#34;&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#x74;&#46;&#97;&#112;&#x69;&#x40;&#99;&#x72;&#x6f;&#x77;&#x64;&#116;&#105;&#x6c;&#116;&#x2e;&#99;&#111;&#109;&#x3f;&#x53;&#117;&#x62;&#x6a;&#x65;&#x63;&#116;&#x3d;&#x41;&#80;&#x49;&#37;&#x32;&#x30;&#67;&#x72;&#101;&#100;&#115;&#34;">&#x61;&#10;&#x68;&#x72;&#101;&#102;&#x3d;&#34;&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#x74;&#46;&#97;&#112;&#x69;&#x40;&#99;&#x72;&#x6f;&#x77;&#x64;&#116;&#105;&#x6c;&#116;&#x2e;&#99;&#111;&#109;&#x3f;&#x53;&#117;&#x62;&#x6a;&#x65;&#x63;&#116;&#x3d;&#x41;&#80;&#x49;&#37;&#x32;&#x30;&#67;&#x72;&#101;&#100;&#115;&#34;</a>support.api@crowdtilt.com</a> to request these.
-Once you receive your Crowdtilt API credentials, you are ready to use the API.
-Remember that all API requests have to go over SSL.
+program, please contact
+<a href="mailto:support.api@crowdtilt.com?Subject=API%20Creds">support.api@crowdtilt.com</a>
+to request these.  Once you receive your Crowdtilt API credentials, you are
+ready to use the API.  Remember that all API requests have to go over SSL.
 
 
 </p>
@@ -426,7 +454,8 @@ can use for testing. Use the base URI below:
 </p>
 <pre><code><span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/</code></pre>
 <p>The sandbox environment will be configured with a free Balanced account. If
-you need support for a different payment processor, please <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#97;&#xa;&#x68;&#x72;&#x65;&#x66;&#61;&#x22;&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#46;&#97;&#x70;&#105;&#64;&#x63;&#114;&#x6f;&#119;&#100;&#116;&#x69;&#x6c;&#x74;&#x2e;&#x63;&#x6f;&#109;&#63;&#83;&#117;&#x62;&#106;&#101;&#99;&#x74;&#x3d;&#65;&#x50;&#73;&#x25;&#50;&#x30;&#x50;&#x61;&#x79;&#x6d;&#101;&#x6e;&#116;&#37;&#x32;&#x30;&#x50;&#114;&#x6f;&#99;&#x65;&#115;&#x73;&#x6f;&#x72;&#37;&#50;&#x30;&#83;&#97;&#110;&#x64;&#x62;&#111;&#x78;&#x22;">&#97;&#xa;&#x68;&#x72;&#x65;&#x66;&#61;&#x22;&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#46;&#97;&#x70;&#105;&#64;&#x63;&#114;&#x6f;&#119;&#100;&#116;&#x69;&#x6c;&#x74;&#x2e;&#x63;&#x6f;&#109;&#63;&#83;&#117;&#x62;&#106;&#101;&#99;&#x74;&#x3d;&#65;&#x50;&#73;&#x25;&#50;&#x30;&#x50;&#x61;&#x79;&#x6d;&#101;&#x6e;&#116;&#37;&#x32;&#x30;&#x50;&#114;&#x6f;&#99;&#x65;&#115;&#x73;&#x6f;&#x72;&#37;&#50;&#x30;&#83;&#97;&#110;&#x64;&#x62;&#111;&#x78;&#x22;</a>let us know </a>.
+you need support for a different payment processor, please
+<a href="mailto:support.api@crowdtilt.com?Subject=API%20Payment%20Processor%20Sandbox">let us know</a>.
 
 
 </p>
@@ -442,7 +471,8 @@ over SSL. You can simply use <code>curl</code> to test our API in 2 seconds.
 <pre><code><span class="setting">401 =<span class="value">> Unauthorized</span></span></code></pre>
 <h3 id='getting-started/data-formats'>Data Formats</h3 id='getting-started/data-formats'>
 <p>Currently, we only support JSON data formats. If you think we should support
-other data formats, please let us know what and why <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#97;&#10;&#x68;&#x72;&#x65;&#x66;&#x3d;&#x22;&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#x2e;&#97;&#x70;&#x69;&#64;&#x63;&#x72;&#111;&#119;&#100;&#x74;&#105;&#108;&#116;&#46;&#x63;&#111;&#x6d;&#63;&#83;&#117;&#x62;&#106;&#101;&#x63;&#x74;&#x3d;&#68;&#x61;&#116;&#97;&#37;&#x32;&#48;&#70;&#111;&#114;&#109;&#97;&#116;&#115;&#34;">&#97;&#10;&#x68;&#x72;&#x65;&#x66;&#x3d;&#x22;&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#x2e;&#97;&#x70;&#x69;&#64;&#x63;&#x72;&#111;&#119;&#100;&#x74;&#105;&#108;&#116;&#46;&#x63;&#111;&#x6d;&#63;&#83;&#117;&#x62;&#106;&#101;&#x63;&#x74;&#x3d;&#68;&#x61;&#116;&#97;&#37;&#x32;&#48;&#70;&#111;&#114;&#109;&#97;&#116;&#115;&#34;</a>support.api@crowdtilt.com</a>.
+other data formats, please let us know what and why
+<a href="mailto:support.api@crowdtilt.com?Subject=Data%20Formats">support.api@crowdtilt.com</a>.
 
 
 </p>
@@ -610,7 +640,6 @@ $ curl -XPOST -HContent-Type:application/json \
         "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
         "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
         "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
-        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
         "<span class="attribute">metadata</span>": <span class="value">{}
     </span>}
 </span>}</code></pre>
@@ -675,10 +704,9 @@ password, as query parameters.
       "<span class="attribute">id</span>" : <span class="value"><span class="string">"USRB07"</span></span>,
       "<span class="attribute">firstname</span>" : <span class="value"><span class="string">"foo"</span></span>,
       "<span class="attribute">lastname</span>" : <span class="value"><span class="string">"bar"</span></span>,
-      "<span class="attribute">status</span>" : <span class="value"><span class="number">1</span></span>,
       "<span class="attribute">img</span>" : <span class="value"><span class="literal">null</span></span>,
       "<span class="attribute">email</span>" : <span class="value"><span class="string">"user@example.com"</span></span>,
-      "<span class="attribute">verified</span>" : <span class="value"><span class="number">0</span></span>,
+      "<span class="attribute">is_verified</span>" : <span class="value"><span class="number">0</span></span>,
       "<span class="attribute">creation_date</span>" : <span class="value"><span class="string">"2012-09-26T10:22:03.900529000Z"</span></span>,
       "<span class="attribute">last_login_date</span>" : <span class="value"><span class="string">"2012-09-26T17:22:20Z"</span>
    </span>}
@@ -706,7 +734,6 @@ $ curl -u key:secret \
         "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
         "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
         "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
-        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
         "<span class="attribute">metadata</span>": <span class="value">{}
     </span>}
 </span>}</code></pre>
@@ -738,7 +765,6 @@ $ curl -u key:secret <span class="url">https://api.crowdtilt.com/v1/users</code>
             "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
             "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
             "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
-            "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
             "<span class="attribute">metadata</span>": <span class="value">{}
         </span>},
         .
@@ -779,7 +805,6 @@ to update a single attribute without having to send the full
         "<span class="attribute">campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/campaigns"</span></span>,
         "<span class="attribute">paid_campaigns_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/paid_campaigns"</span></span>,
         "<span class="attribute">payments_uri</span>": <span class="value"><span class="string">"/v1/users/USREC5/payments"</span></span>,
-        "<span class="attribute">roles</span>" : <span class="value">[<span class="string">"contributor"</span>]</span>,
         "<span class="attribute">metadata</span>": <span class="value">{}
     </span>}
 </span>}</code></pre>
@@ -1154,6 +1179,8 @@ request.  Other fields submitted will be ignored.
 <li><a href="#campaigns">Campaigns</a></li>
 <li><a href="#campaign-payments">Campaign Payments</a></li>
 <li><a href="#refunds">Refunds</a></li>
+<li><a href="#campaign-settlements">Campaign Settlements</a></li>
+<li><a href="#campaign-comments">Campaign Comments</a></li>
 </ul>
 <table>
     <thead>
@@ -1201,6 +1228,27 @@ request.  Other fields submitted will be ignored.
                 <a href="#refund-a-payment">POST</a>
             </td>
             <td> Refunding a specific payment </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements</td>
+            <td>
+                <a href="#get-campaign-settlements">GET</a>
+            </td>
+            <td> Campaign Settlements </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements/:id</td>
+            <td>
+                <a href="#list-campaign-settlement">GET</a>
+            </td>
+            <td> Campaign Settlement </td>
+        </tr>
+        <tr>
+            <td>/campaigns/:id/settlements/:id/bank</td>
+            <td>
+                <a href="#update-campaign-settlement-bank">POST</a>
+            </td>
+            <td> Update a Campaign Settlement Bank </td>
         </tr>
         <tr>
             <td>/campaigns/:id/comments</td>
@@ -1517,6 +1565,83 @@ refund subresource.
 <span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/localhost:5003/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
 <h4>Response Codes</h4>
 <pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
+<h2 id='campaign-settlements'>Campaign Settlements</h2 id='campaign-settlements'>
+<p>Campaign Settlements represent a disbursement of funds for a tilted campaign.
+A campaign settlement will show you the <code>campaign</code>, <code>bank</code>, and <code>user</code> that the
+<code>settlement</code> belongs to.  It will also show you the <code>admin_amount</code>, which is the
+amount of money being sent to the admin&#39;s bank account.  The <code>escrow_amount</code>
+is how much money from the campaign is going into your escrow account (it
+represents fees charged to the admin and payers).  Possible statuses for a
+campaign settlement are:
+
+</p>
+<ul>
+<li><code>needs bank account</code> - this means that admin of the campaign needs to set up
+his or her bank account before the funds will be sent.</li>
+<li><code>pending</code> - this means that the funds are being transfered to the bank account
+specified in the settlement.</li>
+<li><code>rejected</code> - this means that the settlement was rejected and could not be
+sent to the bank account in question.  In these cases, the bank account
+can be updated, as specified in the
+<a href="#update-campaign-settlement-bank">update campaign settlement</a> section.</li>
+<li><code>re-sent pending</code> - this means that the settlement previously failed, but the
+bank account has been updated, and the funds are being transfered to the new
+bank account.</li>
+<li><code>cleared</code> - this means that the funds have cleared the bank account and the
+settlement has completed successfully.</li>
+</ul>
+<h3 id='campaign-settlements/list-campaign-settlements'>List Campaign Settlements</h3 id='campaign-settlements/list-campaign-settlements'>
+<pre><code><span class="title">GET</span> /campaigns/:id/settlements</code></pre>
+<h4>Response</h4>
+<pre><code><span class="string">"settlements"</span> : [
+    {
+        <span class="string">"id"</span> : <span class="string">"SMTD88"</span>,
+            <span class="string">"status"</span> : <span class="string">"pending"</span>,
+            <span class="string">"admin_amount"</span> : <span class="number">1960</span>,
+            <span class="string">"escrow_amount"</span> : <span class="number">40</span>,
+            <span class="string">"modification_date"</span> : <span class="string">"2012-10-29T15:34:48.177091000Z"</span>,
+            <span class="string">"creation_date"</span> : <span class="string">"2012-10-29T15:34:48.177091000Z"</span>,
+            <span class="string">"bank"</span> : { <span class="string">"id"</span> : <span class="string">"BAPCA3"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USRC77/banks/BAPCA3"</span>, <span class="keyword">...</span> },
+            <span class="string">"campaign"</span> : { <span class="string">"id"</span> : <span class="string">"CMPCCC"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMPCCC"</span>, <span class="keyword">...</span> },
+            <span class="string">"user"</span> : { <span class="string">"id"</span> : <span class="string">"USRC7B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USRC7B"</span>, <span class="keyword">...</span> }
+    },
+    .
+    .
+    .
+],
+<span class="string">"pagination"</span> : {
+    <span class="string">"total_pages"</span> : <span class="number">1</span>,
+    <span class="string">"page"</span> : <span class="number">1</span>,
+    <span class="string">"total_entries"</span> : <span class="number">1</span>,
+    <span class="string">"per_page"</span> : <span class="number">50</span>
+}</code></pre>
+<h3 id='campaign-settlements/get-campaign-settlement'>Get Campaign Settlement</h3 id='campaign-settlements/get-campaign-settlement'>
+<pre><code>GET /campaigns/:<span class="keyword">id</span>/settlements/:<span class="keyword">id</span></code></pre>
+<h4>Response</h4>
+<pre><code>{
+    <span class="string">"settlement"</span> : {
+        <span class="string">"id"</span> : <span class="string">"SMTD88"</span>,
+            <span class="string">"status"</span> : <span class="string">"pending"</span>,
+            <span class="string">"admin_amount"</span> : <span class="number">1960</span>,
+            <span class="string">"escrow_amount"</span> : <span class="number">40</span>,
+            <span class="string">"modification_date"</span> : <span class="string">"2012-10-29T15:34:48.177091000Z"</span>,
+            <span class="string">"creation_date"</span> : <span class="string">"2012-10-29T15:34:48.177091000Z"</span>,
+            <span class="string">"bank"</span> : { <span class="string">"id"</span> : <span class="string">"BAPCA3"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USRC77/banks/BAPCA3"</span>, <span class="keyword">...</span> },
+            <span class="string">"campaign"</span> : { <span class="string">"id"</span> : <span class="string">"CMPCCC"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/campaigns/CMPCCC"</span>, <span class="keyword">...</span> },
+            <span class="string">"user"</span> : { <span class="string">"id"</span> : <span class="string">"USRC7B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USRC7B"</span>, <span class="keyword">...</span> }
+    }
+}</code></pre>
+<h3 id='campaign-settlements/update-campaign-settlement-bank'>Update Campaign Settlement Bank</h3 id='campaign-settlements/update-campaign-settlement-bank'>
+<p>A Campaign Settlement can only be updated if the status is <code>needs bank account</code>.
+In this instance, a <code>bank</code> object can be sent with the <code>id</code> of a new bank
+account to re-attempt the settlement with.
+
+</p>
+<pre><code>POST /campaigns/:<span class="keyword">id</span>/settlements/:<span class="keyword">id</span>/bank</code></pre>
+<h4>Request</h4>
+<pre><code>{
+    "<span class="attribute">bank</span>" : <span class="value">{ "<span class="attribute">id</span>" : <span class="value"><span class="string">"BAPCA4"</span> </span>}
+</span>}</code></pre>
 <h2 id='campaign-comments'>Campaign Comments</h2 id='campaign-comments'>
 <h3 id='campaign-comments/create-campaign-comment'>Create Campaign Comment</h3 id='campaign-comments/create-campaign-comment'>
 <p>To create a comment, POST to <code>/campaigns/:id/comments</code>.
@@ -1693,7 +1818,10 @@ The purpose of the <code>score</code> field is to provide support for voting on 
             <td>last_login_date</td>
             <td>string</td>
             <td>Auto generated and read-only</td>
-            <td>It is ISO8601 DateTime format</td>
+            <td>
+                It is ISO8601 DateTime format, updated when a user
+                is authenticated.
+            </td>
         </tr>
         <tr>
             <td>metadata</td>
@@ -1763,6 +1891,12 @@ The purpose of the <code>score</code> field is to provide support for voting on 
             <td>string</td>
             <td>Yes</td>
             <td>The description of the campaign</td>
+        </tr>
+        <tr>
+            <td>img</td>
+            <td>string</td>
+            <td>No</td>
+            <td>A URI to an image to be used for the campaign</td>
         </tr>
         <tr>
             <td>is_expired</td>
@@ -1898,16 +2032,28 @@ The purpose of the <code>score</code> field is to provide support for voting on 
             <td>The name of the business or non-profit</td>
         </tr>
         <tr>
+            <td>admin</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign&#39;s admin</td>
+        </tr>
+        <tr>
+            <td>tilter</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign&#39;s tilter (if tilted)</td>
+        </tr>
+        <tr>
+            <td>first_contributor</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>This campaign&#39;s first contributor</td>
+        </tr>
+        <tr>
             <td>uri</td>
             <td>string</td>
             <td>Auto generated and read-only</td>
             <td>The uri for this campaign resource</td>
-        </tr>
-        <tr>
-            <td>admin</td>
-            <td>JSON object</td>
-            <td>Auto generated and read-only</td>
-            <td>This campaign&#39;s admin</td>
         </tr>
         <tr>
             <td>payments_uri</td>
@@ -1916,10 +2062,22 @@ The purpose of the <code>score</code> field is to provide support for voting on 
             <td>The uri for the payments on this campaign</td>
         </tr>
         <tr>
+            <td>settlements_uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri with the settlements for this campaign</td>
+        </tr>
+        <tr>
             <td>metadata</td>
             <td>JSON object</td>
             <td>No</td>
             <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+        <tr>
+            <td>stats</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Statistics information about the campaign.</td>
         </tr>
     </tbody>
 </table>
@@ -1946,7 +2104,33 @@ The purpose of the <code>score</code> field is to provide support for voting on 
             <td>amount</td>
             <td>number</td>
             <td>Yes</td>
-            <td>The amount of this payment</td>
+            <td>
+                The amount of this payment that will go towards the campaign
+            </td>
+        </tr>
+        <tr>
+            <td>user_fee_amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>
+                The amount to charge the user (payer) for this contribution.
+                This amount will be <em>added</em> to the <code>amount</code> value when
+                determining what will be charged to the users card.
+                The full charge amount will be <code>amount</code> + <code>user_fee_amount</code>.
+            </td>
+        </tr>
+        <tr>
+            <td>admin_fee_amount</td>
+            <td>number</td>
+            <td>Yes</td>
+            <td>
+                The amount to charge the admin of the campaign for this
+                contribution.  This value does <em>not</em> affect the amount charged
+                to the user, but instead affects how much of the <code>amount</code> value
+                goes to the campaign admin.  The admin will get <code>amount</code> -
+                <code>admin_fee_amount</code> from this contribution when the campaign
+                tilts and expires.
+            </td>
         </tr>
         <tr>
             <td>status</td>
@@ -1989,19 +2173,19 @@ The purpose of the <code>score</code> field is to provide support for voting on 
         </tr>
         <tr>
             <td>user</td>
-            <td>JSON object</td>
+            <td>JSON User object</td>
             <td>Auto generated and read-only</td>
             <td>The contributor of this payment</td>
         </tr>
         <tr>
             <td>card</td>
-            <td>JSON object</td>
+            <td>JSON Card object</td>
             <td>Auto generated and read-only</td>
             <td>The card used for this payment</td>
         </tr>
         <tr>
             <td>campaign</td>
-            <td>JSON object</td>
+            <td>JSON Campaign object</td>
             <td>Auto generated and read-only</td>
             <td>The campaign this payment is for</td>
         </tr>
@@ -2014,6 +2198,128 @@ The purpose of the <code>score</code> field is to provide support for voting on 
     </tbody>
 </table>
 
+
+<h2 id='settlement-definition'>Settlement Definition</h2 id='settlement-definition'>
+<table>
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>A unique identifier for the payment</td>
+        </tr>
+        <tr>
+            <td>admin_amount</td>
+            <td>number</td>
+            <td>Auto generated and read-only</td>
+            <td>
+                The amount of this payment that is going to the admin bank
+                account (the bank account shown in the <code>bank</code> sub-object).
+            </td>
+        </tr>
+        <tr>
+            <td>escrow_amount</td>
+            <td>number</td>
+            <td>Auto generated and read-only</td>
+            <td>
+                The amount of this payment that is going into the API Users
+                escrow account.
+            </td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>Reflects the status of the settlement. Available values:
+                <table>
+                    <tr>
+                        <td>Value</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td>needs bank account</td>
+                        <td>Cannot submit until bank account is added</td>
+                    </tr>
+                    <tr>
+                        <td>pending</td>
+                        <td>Settlement has been sent and is pending</td>
+                    </tr>
+                    <tr>
+                        <td>rejected</td>
+                        <td>
+                            Settlement was rejected, usually due to invalid
+                            bank account information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>re-sent pending</td>
+                        <td>
+                            Pending again after a re-try if this
+                            settlement was previously rejected
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>cleared</td>
+                        <td>
+                            The settlement has successfully cleared
+                            the users bank account.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>creation_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The creation date of the settlement</td>
+        </tr>
+        <tr>
+            <td>modification_date</td>
+            <td>String. ISO8601 DateTime format</td>
+            <td>Auto generated and read-only</td>
+            <td>The modification date of the settlement</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>Auto generated and read-only</td>
+            <td>The uri for this settlement</td>
+        </tr>
+        <tr>
+            <td>user</td>
+            <td>JSON User object</td>
+            <td>Auto generated and read-only</td>
+            <td>The user who received this settlement</td>
+        </tr>
+        <tr>
+            <td>bank</td>
+            <td>JSON Bank object</td>
+            <td>Auto generated and read-only</td>
+            <td>The bank account that received this settlement</td>
+        </tr>
+        <tr>
+            <td>campaign</td>
+            <td>JSON Campaign object</td>
+            <td>Auto generated and read-only</td>
+            <td>The campaign this payment is for</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>JSON object</td>
+            <td>No</td>
+            <td>Key-Value pair for any extra data the API consumer wants to store.</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <h1>Pagination</h1>
@@ -2037,15 +2343,13 @@ of <strong>50</strong> entries per page. For example:
             "firstname": "Foo",
             "lastname": "Bar",
             "img": "http://example.com/profile.png",
-            "status": 1,
-            "verified": 1,
+            "is_verified": 1,
             "creation_date": "2011-07-02T14:20:48Z",
             "last_login_date": "2012-09-22T01:55:49Z",
             "uri": "/v1/users/USREC5",
             "campaigns_uri": "/v1/users/USREC5/campaigns",
             "paid_campaigns_uri": "/v1/users/USREC5/paid_campaigns",
             "payments_uri": "/v1/users/USREC5/payments",
-            "roles" : ["contributor"],
             "metadata": {}
         },
         .
