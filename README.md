@@ -1,6 +1,6 @@
 ![Crowdtilt](http://f9b43d4100c64ffefa80-01a69cdaa3d52fbca65973574eec9d29.r21.cf2.rackcdn.com/ct_logo.png)
 
-# Crowdtilt API Specs
+# Crowdtilt API Specs (BETA)
 
 The Crowdtilt API opens up the opportunity for developers to:
 * Offer a group payments option in their applications.
