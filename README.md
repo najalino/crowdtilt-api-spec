@@ -30,6 +30,7 @@ What we think is cool about the Crowdtilt API:
 
 # Menu
 * [Introduction](#introduction)
+* [Security](#security)
 * [Use-Cases](#use-cases)
 * [Getting Started](#getting-started)
 * [User Resources](#user-resources)
@@ -85,6 +86,25 @@ was created.
 Here is a full definition for each one of those objects:
 [campaign](#campaign-definition), [user](#user-definition),
 [payment](#payment-definition).
+
+
+## Security
+
+Crowdtilt is fully PCI compliant and security is of paramount importance to our
+team. Crowdtilt forces HTTPS for all services, including our public website. All
+data is stored in a Payment Industry Data Security Standard (PCI DSS)
+Compliant environment.
+
+Implementors of the beta API, for now, must be PCI compliant as well. However,
+we will be able to offer javascript tokenization for non-PCI compliant consumers
+soon as well as our group-payments javascript button for the lightest
+integration possible for both PCI and non-PCI compliant consumers alike.
+
+We investigate all reported security issues with extreme immediacy. If you
+believe you've found any security issues, please email us at
+[security@crowdtilt.com](mailto:security@crowdtilt.com). Though usually faster,
+we guarantee a direct response within 24 hours. We ask that you do not
+disclose a security bug publicly until it has been addressed by our team.
 
 
 ## Use Cases
