@@ -849,6 +849,14 @@ request.  Other fields submitted will be ignored.
 
     POST /users/:id/banks
 
+    {
+        "bank": {
+            "account_number" : "1234567890",
+            "name" : "Bank Name",
+            "bank_code" : "123451234",
+        }
+    }
+
 #### Response Body
 
     {
@@ -856,7 +864,7 @@ request.  Other fields submitted will be ignored.
             "account_number_last_four" : "1234",
             "metadata" : {},
             "id" : "BAP688E65FA0C6D11E28914FE5E5CD73F12",
-            "name" : "John Doe",
+            "name" : "Bank Name",
             "user": { "id" : "USR54B", "uri" : "/v1/users/USR54B", ... },
             "bank_code_last_four" : "1234",
             "uri" : "/v1/users/USR54B/banks/BAP688"
