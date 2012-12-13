@@ -40,6 +40,11 @@
         </li>
       
         <li>
+          <a href="#security">Security</a>
+          
+        </li>
+      
+        <li>
           <a href="#use-cases">Use Cases</a>
           
         </li>
@@ -396,7 +401,7 @@
     <p><img src="http://f9b43d4100c64ffefa80-01a69cdaa3d52fbca65973574eec9d29.r21.cf2.rackcdn.com/ct_logo.png" alt="Crowdtilt">
 
 </p>
-<h1>Crowdtilt API Specs</h1>
+<h1>Crowdtilt API Specs (BETA)</h1>
 <p>The Crowdtilt API opens up the opportunity for developers to:
 <em> Offer a group payments option in their applications.
 </em> Offer a pre-sales commerce option in their applications.
@@ -428,6 +433,7 @@
 <h1>Menu</h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#security">Security</a></li>
 <li><a href="#use-cases">Use-Cases</a></li>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#user-resources">User Resources</a><ul>
@@ -492,6 +498,27 @@ was created.
 <p>Here is a full definition for each one of those objects:
 <a href="#campaign-definition">campaign</a>, <a href="#user-definition">user</a>,
 <a href="#payment-definition">payment</a>.
+
+
+</p>
+<h2 id='security'>Security</h2 id='security'>
+<p>Crowdtilt is fully PCI compliant and security is of paramount importance to our
+team. Crowdtilt forces HTTPS for all services, including our public website. All
+data is stored in a Payment Industry Data Security Standard (PCI DSS)
+Compliant environment.
+
+</p>
+<p>Implementors of the beta API, for now, must be PCI compliant as well. However,
+we will be able to offer javascript tokenization for non-PCI compliant consumers
+soon as well as our group-payments javascript button for the lightest
+integration possible for both PCI and non-PCI compliant consumers alike.
+
+</p>
+<p>We investigate all reported security issues with extreme immediacy. If you
+believe you&#39;ve found any security issues, please email us at
+<a href="mailto:security@crowdtilt.com">security@crowdtilt.com</a>. Though usually faster,
+we guarantee a direct response within 24 hours. We ask that you do not
+disclose a security bug publicly until it has been addressed by our team.
 
 
 </p>
@@ -733,7 +760,7 @@ needs to be verified.  A user is verified by <code>POST</code>ing verification d
 </p>
 <ul>
 <li><code>name</code> - should be the real name of the user</li>
-<li><code>dob</code> - the date of birth of the user in the format MM-YYYY</li>
+<li><code>dob</code> - the date of birth of the user in the format YYYY-MM</li>
 <li><code>phone_number</code> - the user&#39;s phone number</li>
 <li><code>street_address</code> - the user&#39;s street address</li>
 <li><code>postal code</code> - the user&#39;s postal code</li>
@@ -756,7 +783,7 @@ will be set to 1 to reflect this change.
 {
    "verification" : {
       "name" : "Khaled Hussein",
-      "dob" : "07-1984",
+      "dob" : "1984-07",
       "phone_number" : "(000) 000-0000",
       "street_address" : "324 awesome address, awesome city, CA",
       "postal_code" : "12345"
@@ -1142,14 +1169,22 @@ request.  Other fields submitted will be ignored.
 <pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
 <h2 id='user-banks'>User Banks</h2 id='user-banks'>
 <h3 id='user-banks/create-user-bank'>Create User Bank</h3 id='user-banks/create-user-bank'>
-<pre><code><span class="title">POST</span> /users/:id/banks</code></pre>
+<pre><code><span class="title">POST</span> /users/:id/banks
+
+{
+    "bank": {
+        "account_number" : "1234567890",
+        "name" : "<span class="title">Bank</span> Name<span class="string">",
+        "</span>bank_code<span class="string">" : "</span><span class="number">123451234</span><span class="string">",
+    }
+}</code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     <span class="string">"bank"</span>: {
         <span class="string">"account_number_last_four"</span> : <span class="string">"1234"</span>,
         <span class="string">"metadata"</span> : {},
         <span class="string">"id"</span> : <span class="string">"BAP688E65FA0C6D11E28914FE5E5CD73F12"</span>,
-        <span class="string">"name"</span> : <span class="string">"John Doe"</span>,
+        <span class="string">"name"</span> : <span class="string">"Bank Name"</span>,
         <span class="string">"user"</span>: { <span class="string">"id"</span> : <span class="string">"USR54B"</span>, <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B"</span>, <span class="keyword">...</span> },
         <span class="string">"bank_code_last_four"</span> : <span class="string">"1234"</span>,
         <span class="string">"uri"</span> : <span class="string">"/v1/users/USR54B/banks/BAP688"</span>
