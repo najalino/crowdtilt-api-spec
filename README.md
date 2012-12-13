@@ -352,7 +352,7 @@ needs to be verified.  A user is verified by `POST`ing verification data to the
 The verification data is as follows:
 
 * `name` - should be the real name of the user
-* `dob` - the date of birth of the user in the format MM-YYYY
+* `dob` - the date of birth of the user in the format YYYY-MM
 * `phone_number` - the user's phone number
 * `street_address` - the user's street address
 * `postal code` - the user's postal code
@@ -373,7 +373,7 @@ will be set to 1 to reflect this change.
     {
        "verification" : {
           "name" : "Khaled Hussein",
-          "dob" : "07-1984",
+          "dob" : "1984-07",
           "phone_number" : "(000) 000-0000",
           "street_address" : "324 awesome address, awesome city, CA",
           "postal_code" : "12345"
