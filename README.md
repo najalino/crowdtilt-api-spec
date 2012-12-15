@@ -307,7 +307,7 @@ branch.
     POST /users
 
     $ curl -X POST -H Content-Type:application/json \
-    -u key:secret http://api.crowdtilt.com/v1/users \
+    -u key:secret https://api.crowdtilt.com/v1/users \
     -d'
     {
        "user" : {
@@ -326,7 +326,7 @@ branch.
             "firstname": "Foo",
             "lastname": "Bar",
             "is_verified": 0,
-            "img": "http://example.com/profile.png",
+            "img": "https://example.com/profile.png",
             "creation_date": "2011-07-02T14:20:48Z",
             "last_login_date": "2012-09-22T01:55:49Z",
             "uri": "/v1/users/USREC5",
@@ -368,7 +368,7 @@ will be set to 1 to reflect this change.
     POST /users/:id/verification
 
     $ curl -X POST -H Content-Type:application/json -u key:secret \
-    http://api.crowdtilt.com/v1/users/USREC5 \
+    https://api.crowdtilt.com/v1/users/USREC5 \
     -d'
     {
        "verification" : {
@@ -435,7 +435,7 @@ password, as query parameters.
             "firstname": "Foo",
             "lastname": "Bar",
             "is_verified": 1,
-            "img": "http://example.com/profile.png",
+            "img": "https://example.com/profile.png",
             "creation_date": "2011-07-02T14:20:48Z",
             "last_login_date": "2012-09-22T01:55:49Z",
             "uri": "/v1/users/USREC5",
@@ -473,7 +473,7 @@ password, as query parameters.
                 "firstname": "Foo",
                 "lastname": "Bar",
                 "is_verified": 0,
-                "img": "http://example.com/profile.png",
+                "img": "https://example.com/profile.png",
                 "creation_date": "2011-07-02T14:20:48Z",
                 "last_login_date": "2012-09-22T01:55:49Z",
                 "uri": "/v1/users/USREC5",
@@ -502,7 +502,7 @@ to update a single attribute without having to send the full
     PUT /users/:id
 
     $ curl -X PUT -HContent-Type:application/json -u key:secret \
-    http://api.crowdtilt.com/v1/users/USREC5 \
+    https://api.crowdtilt.com/v1/users/USREC5 \
     -d'
     {
         "user": {
@@ -519,7 +519,7 @@ to update a single attribute without having to send the full
             "firstname": "Foo",
             "lastname": "new last name",
             "is_verified": 0,
-            "img": "http://example.com/profile.png",
+            "img": "https://example.com/profile.png",
             "creation_date": "2011-07-02T14:20:48Z",
             "last_login_date": "2012-09-22T01:55:49Z",
             "uri": "/v1/users/USREC5",
@@ -1193,7 +1193,7 @@ and then be able to receive the money collected in their campaign.
             "expiration_date": "2000-01-02T01:02:03Z",
             "creation_date": "2000-01-02T01:02:03Z",
             "modification_date": "2000-01-02T01:02:03Z",
-            "img": "http://url.to/img.jpg",
+            "img": "https://url.to/img.jpg",
             "is_tilted": 0,
             "is_paid": 0,
             "is_expired": 0,
@@ -1244,7 +1244,7 @@ and then be able to receive the money collected in their campaign.
                 "expiration_date": "2000-01-02T01:02:03Z",
                 "creation_date": "2000-01-02T01:02:03Z",
                 "modification_date": "2000-01-02T01:02:03Z",
-                "img": "http://url.to/img.jpg",
+                "img": "https://url.to/img.jpg",
                 "is_tilted": 0,
                 "is_paid": 0,
                 "is_expired" : 0,
@@ -1295,7 +1295,7 @@ to update a single attribute without having to send the full [campaign object](/
             "expiration_date": "2000-01-02T01:02:03Z",
             "creation_date": "2000-01-02T01:02:03Z",
             "modification_date": "2000-01-02T01:02:03Z",
-            "img": "http://url.to/img.jpg",
+            "img": "https://url.to/img.jpg",
             "is_tilted": 0,
             "is_paid": 0,
             "is_expired": 0,
@@ -1525,7 +1525,7 @@ refund subresource.
     POST /campaigns/:id/payments/:id/refund
 
     $ curl -X POST -u key:secret \
-    http://api.crowdtilt.com/v1/campaigns/CMP96B/payments/CON233/refund
+    https://api.crowdtilt.com/v1/campaigns/CMP96B/payments/CON233/refund
 
 #### Response Codes
 
@@ -1770,7 +1770,7 @@ create two users, an admin, and a contributor.
 
     # Create the admin user
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        http://api.crowdtilt.com/v1/users \
+        https://api.crowdtilt.com/v1/users \
         -d'{
             "user":{
                 "email" : "user@gmail.com"
@@ -1797,7 +1797,7 @@ create two users, an admin, and a contributor.
 
      # Create the paying user
      $ curl -X POST -u key:secret  -H Content-Type:application/json \
-         http://api.crowdtilt.com/v1/users \
+         https://api.crowdtilt.com/v1/users \
          -d'{
              "user":{
                  "email" : "payer@gmail.com"
@@ -1829,7 +1829,7 @@ example, we'll make the first user created above the `admin` user, and use the
 second user to make a payment on the campaign.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        http://api.crowdtilt.com/v1/campaigns \
+        https://api.crowdtilt.com/v1/campaigns \
         -d'{
             "campaign" : {
                 "user_id" : "USRC55",
@@ -1895,7 +1895,7 @@ second user to make a payment on the campaign.
 Now, we'll create a credit card for the paying user.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        http://api.crowdtilt.com/v1/users/USRE32/cards \
+        https://api.crowdtilt.com/v1/users/USRE32/cards \
         -d'{
             "card" : {
                 "number" : "4111111111111111",
@@ -1924,7 +1924,7 @@ Now, we'll create a credit card for the paying user.
 Now we'll create a payment by the paying user to the campaign we created.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        http://api.crowdtilt.com/v1/campaings/CMP542/payments \
+        https://api.crowdtilt.com/v1/campaings/CMP542/payments \
         -d'{
             "payment" : {
                 "user_id" : "USRE32",
@@ -2630,7 +2630,7 @@ of **50** entries per page. For example:
                 "email": "foo.bar@gmail.com",
                 "firstname": "Foo",
                 "lastname": "Bar",
-                "img": "http://example.com/profile.png",
+                "img": "https://example.com/profile.png",
                 "is_verified": 1,
                 "creation_date": "2011-07-02T14:20:48Z",
                 "last_login_date": "2012-09-22T01:55:49Z",
