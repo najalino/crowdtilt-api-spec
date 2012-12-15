@@ -719,7 +719,7 @@ branch.
 <pre><code><span class="title">POST</span> /users
 
 $ curl -X POST -H Content-Type:application/json \
--u key:secret <span class="url">http://api.crowdtilt.com/v1/users</span> \
+-u key:secret <span class="url">https://api.crowdtilt.com/v1/users</span> \
 -d<span class="string">'
 {
    "user" : {
@@ -736,7 +736,7 @@ $ curl -X POST -H Content-Type:application/json \
         "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
         "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
         "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
-        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"https://example.com/profile.png"</span></span>,
         "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
         "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
         "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
@@ -778,7 +778,7 @@ will be set to 1 to reflect this change.
 <pre><code><span class="constant">POST</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">verification</span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="constant">H</span> <span class="constant">Content</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
 -<span class="identifier">d</span><span class="string">'
 {
    "verification" : {
@@ -830,7 +830,7 @@ $ curl -u key:secret \
         "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
         "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
         "<span class="attribute">is_verified</span>": <span class="value"><span class="number">1</span></span>,
-        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"https://example.com/profile.png"</span></span>,
         "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
         "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
         "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
@@ -861,7 +861,7 @@ $ curl -u key:secret <span class="url">https://api.crowdtilt.com/v1/users</code>
             "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
             "<span class="attribute">lastname</span>": <span class="value"><span class="string">"Bar"</span></span>,
             "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
-            "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+            "<span class="attribute">img</span>": <span class="value"><span class="string">"https://example.com/profile.png"</span></span>,
             "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
             "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
             "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
@@ -886,7 +886,7 @@ to update a single attribute without having to send the full
 <pre><code><span class="constant">PUT</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">PUT</span> -<span class="constant">HContent</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
 -<span class="identifier">d</span><span class="string">'
 {
     "user": {
@@ -901,7 +901,7 @@ to update a single attribute without having to send the full
         "<span class="attribute">firstname</span>": <span class="value"><span class="string">"Foo"</span></span>,
         "<span class="attribute">lastname</span>": <span class="value"><span class="string">"new last name"</span></span>,
         "<span class="attribute">is_verified</span>": <span class="value"><span class="number">0</span></span>,
-        "<span class="attribute">img</span>": <span class="value"><span class="string">"http://example.com/profile.png"</span></span>,
+        "<span class="attribute">img</span>": <span class="value"><span class="string">"https://example.com/profile.png"</span></span>,
         "<span class="attribute">creation_date</span>": <span class="value"><span class="string">"2011-07-02T14:20:48Z"</span></span>,
         "<span class="attribute">last_login_date</span>": <span class="value"><span class="string">"2012-09-22T01:55:49Z"</span></span>,
         "<span class="attribute">uri</span>": <span class="value"><span class="string">"/v1/users/USREC5"</span></span>,
@@ -1463,7 +1463,7 @@ and then be able to receive the money collected in their campaign.
         <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
         <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
         <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
-        <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+        <span class="string">"img"</span>: <span class="string">"https://url.to/img.jpg"</span>,
         <span class="string">"is_tilted"</span>: <span class="number">0</span>,
         <span class="string">"is_paid"</span>: <span class="number">0</span>,
         <span class="string">"is_expired"</span>: <span class="number">0</span>,
@@ -1507,7 +1507,7 @@ and then be able to receive the money collected in their campaign.
             <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
             <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
             <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
-            <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+            <span class="string">"img"</span>: <span class="string">"https://url.to/img.jpg"</span>,
             <span class="string">"is_tilted"</span>: <span class="number">0</span>,
             <span class="string">"is_paid"</span>: <span class="number">0</span>,
             <span class="string">"is_expired"</span> : <span class="number">0</span>,
@@ -1552,7 +1552,7 @@ to update a single attribute without having to send the full <a href="/Crowdtilt
         <span class="string">"expiration_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
         <span class="string">"creation_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
         <span class="string">"modification_date"</span>: <span class="string">"2000-01-02T01:02:03Z"</span>,
-        <span class="string">"img"</span>: <span class="string">"http://url.to/img.jpg"</span>,
+        <span class="string">"img"</span>: <span class="string">"https://url.to/img.jpg"</span>,
         <span class="string">"is_tilted"</span>: <span class="number">0</span>,
         <span class="string">"is_paid"</span>: <span class="number">0</span>,
         <span class="string">"is_expired"</span>: <span class="number">0</span>,
@@ -1742,7 +1742,7 @@ refund subresource.
 <pre><code><span class="constant">POST</span> /<span class="identifier">campaigns</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">payments</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">refund</span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
 <h4>Response Codes</h4>
 <pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
 <h2 id='campaign-settlements'>Campaign Settlements</h2 id='campaign-settlements'>
@@ -1944,7 +1944,7 @@ create two users, an admin, and a contributor.
 </p>
 <pre><code><span class="comment"># Create the admin user</span>
 $ curl -X POST -u key:secret  -H Content-Type:application/json \
-    http:<span class="comment">//api.crowdtilt.com/v1/users \</span>
+    https:<span class="comment">//api.crowdtilt.com/v1/users \</span>
     -d<span class="string">'{
         "user":{
             "email" : "user@gmail.com"
@@ -1971,7 +1971,7 @@ $ curl -X POST -u key:secret  -H Content-Type:application/json \
 
  <span class="comment"># Create the paying user</span>
  $ curl -X POST -u key:secret  -H Content-Type:application/json \
-     http:<span class="comment">//api.crowdtilt.com/v1/users \</span>
+     https:<span class="comment">//api.crowdtilt.com/v1/users \</span>
      -d<span class="string">'{
          "user":{
              "email" : "payer@gmail.com"
@@ -2002,7 +2002,7 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code>$ curl -X POST -u key:secret  -H Content-Type:application/json \
-    http:<span class="comment">//api.crowdtilt.com/v1/campaigns \</span>
+    https:<span class="comment">//api.crowdtilt.com/v1/campaigns \</span>
     -d<span class="string">'{
         "campaign" : {
             "user_id" : "USRC55",
@@ -2067,12 +2067,12 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code><span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span>  -<span class="constant">H</span> <span class="constant">Content</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> \
-    <span class="identifier">http</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USRE32</span>/<span class="identifier">cards</span> \
+    <span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USRE32</span>/<span class="identifier">cards</span> \
     -<span class="identifier">d</span><span class="string">'{
         "card" : {
             "number" : "4111111111111111",
             "expiration_month" : "07",
-        "expiration_year" : "2032",
+            "expiration_year" : "2032",
             "security_code" : "123"
         }
     }'</span>
@@ -2095,7 +2095,7 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code>$ curl -X POST -u key:secret  -H Content-Type:application/json \
-    http:<span class="comment">//api.crowdtilt.com/v1/campaings/CMP542/payments \</span>
+    https:<span class="comment">//api.crowdtilt.com/v1/campaings/CMP542/payments \</span>
     -d<span class="string">'{
         "payment" : {
             "user_id" : "USRE32",
@@ -2798,7 +2798,7 @@ of <strong>50</strong> entries per page. For example:
             "email": "foo.bar@gmail.com",
             "firstname": "Foo",
             "lastname": "Bar",
-            "img": "http://example.com/profile.png",
+            "img": "https://example.com/profile.png",
             "is_verified": 1,
             "creation_date": "2011-07-02T14:20:48Z",
             "last_login_date": "2012-09-22T01:55:49Z",
