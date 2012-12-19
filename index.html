@@ -555,7 +555,7 @@ ready to use the API.  Remember that all API requests have to go over SSL.
 can use for testing. Use the base URI below:
 
 </p>
-<pre><code><span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/</code></pre>
+<pre><code><span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1</code></pre>
 <p>The sandbox environment will be configured with a free Balanced account. If
 you need support for a different payment processor, please
 <a href="mailto:support.api@crowdtilt.com?Subject=API%20Payment%20Processor%20Sandbox">let us know</a>.
@@ -567,7 +567,7 @@ you need support for a different payment processor, please
 over SSL. You can simply use <code>curl</code> to test our API in 2 seconds.
 
 </p>
-<pre><code>$ curl -u API_KEY:API_SECRET https://api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1</code></pre>
+<pre><code>$ curl -u API_KEY:API_SECRET https://api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1</code></pre>
 <p>If the credentials provided were invalid, the API will respond with
 
 </p>
@@ -719,7 +719,7 @@ branch.
 <pre><code><span class="title">POST</span> /users
 
 $ curl -X POST -H Content-Type:application/json \
--u key:secret <span class="url">https://api.crowdtilt.com/v1/users</span> \
+-u key:secret <span class="url">https://api-sandbox.crowdtilt.com/v1/users</span> \
 -d<span class="string">'
 {
    "user" : {
@@ -778,7 +778,7 @@ will be set to 1 to reflect this change.
 <pre><code><span class="constant">POST</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">verification</span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="constant">H</span> <span class="constant">Content</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
 -<span class="identifier">d</span><span class="string">'
 {
    "verification" : {
@@ -821,7 +821,7 @@ password, as query parameters.
 <pre><code>GET  /users/:id
 
 $ curl -u key:secret \
-<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5</code></pre>
+<span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5</code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     "<span class="attribute">user</span>": <span class="value">{
@@ -845,7 +845,7 @@ $ curl -u key:secret \
 <h3 id='users/list-users'>List Users</h3 id='users/list-users'>
 <pre><code><span class="title">GET</span> /users
 
-$ curl -u key:secret <span class="url">https://api.crowdtilt.com/v1/users</code></pre>
+$ curl -u key:secret <span class="url">https://api-sandbox.crowdtilt.com/v1/users</code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     "<span class="attribute">pagination</span>": <span class="value">{
@@ -886,7 +886,7 @@ to update a single attribute without having to send the full
 <pre><code><span class="constant">PUT</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">PUT</span> -<span class="constant">HContent</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span> \
 -<span class="identifier">d</span><span class="string">'
 {
     "user": {
@@ -922,7 +922,7 @@ campaigns that he paid for.
 <pre><code>GET /users/:id/campaigns
 
 $ curl -u key:secret \
-<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns</code></pre>
+<span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns</code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     <span class="string">"pagination"</span>: {
@@ -972,7 +972,7 @@ $ curl -u key:secret \
 <pre><code><span class="constant">GET</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">campaigns</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span>/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span></code></pre>
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USREC5</span>/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span></code></pre>
 <h4>Response Body</h4>
 <pre><code>{
    <span class="string">"campaign"</span> : {
@@ -1016,7 +1016,7 @@ $ curl -u key:secret \
 <pre><code>GET /users/:id/paid_campaigns
 
 $ curl -u key:secret \
-<span class="label">https:</span>//api<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns/CMP96B</code></pre>
+<span class="label">https:</span>//api-sandbox<span class="preprocessor">.crowdtilt</span><span class="preprocessor">.com</span>/v1/users/USREC5/campaigns/CMP96B</code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     <span class="string">"pagination"</span>: {
@@ -1064,7 +1064,7 @@ $ curl -u key:secret \
 <pre><code><span class="constant">POST</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">cards</span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> -<span class="constant">H</span> <span class="constant">Content</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span>\
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>\
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>\
 -<span class="identifier">d</span><span class="string">'
 {
     "card": {
@@ -1098,7 +1098,7 @@ $ curl -u key:secret \
 <pre><code><span class="constant">GET</span> /<span class="identifier">users</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">cards</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>/<span class="constant">CCP6D6</span></code></pre>
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USR50A</span>/<span class="identifier">cards</span>/<span class="constant">CCP6D6</span></code></pre>
 <h4>Response Body</h4>
 <pre><code>{
     <span class="string">"card"</span>: {
@@ -1742,7 +1742,7 @@ refund subresource.
 <pre><code><span class="constant">POST</span> /<span class="identifier">campaigns</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">payments</span>/<span class="symbol">:<span class="identifier"><span class="keymethods">id</span></span></span>/<span class="identifier">refund</span>
 
 <span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span> \
-<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
+<span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">campaigns</span>/<span class="constant">CMP96B</span>/<span class="identifier">payments</span>/<span class="constant">CON233</span>/<span class="identifier">refund</span></code></pre>
 <h4>Response Codes</h4>
 <pre><code><span class="setting">200 =<span class="value">> OK</span></span></code></pre>
 <h2 id='campaign-settlements'>Campaign Settlements</h2 id='campaign-settlements'>
@@ -1944,7 +1944,7 @@ create two users, an admin, and a contributor.
 </p>
 <pre><code><span class="comment"># Create the admin user</span>
 $ curl -X POST -u key:secret  -H Content-Type:application/json \
-    https:<span class="comment">//api.crowdtilt.com/v1/users \</span>
+    https:<span class="comment">//api-sandbox.crowdtilt.com/v1/users \</span>
     -d<span class="string">'{
         "user":{
             "email" : "user@gmail.com"
@@ -1971,7 +1971,7 @@ $ curl -X POST -u key:secret  -H Content-Type:application/json \
 
  <span class="comment"># Create the paying user</span>
  $ curl -X POST -u key:secret  -H Content-Type:application/json \
-     https:<span class="comment">//api.crowdtilt.com/v1/users \</span>
+     https:<span class="comment">//api-sandbox.crowdtilt.com/v1/users \</span>
      -d<span class="string">'{
          "user":{
              "email" : "payer@gmail.com"
@@ -2002,7 +2002,7 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code>$ curl -X POST -u key:secret  -H Content-Type:application/json \
-    https:<span class="comment">//api.crowdtilt.com/v1/campaigns \</span>
+    https:<span class="comment">//api-sandbox.crowdtilt.com/v1/campaigns \</span>
     -d<span class="string">'{
         "campaign" : {
             "user_id" : "USRC55",
@@ -2067,7 +2067,7 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code><span class="variable">$ </span><span class="identifier">curl</span> -<span class="constant">X</span> <span class="constant">POST</span> -<span class="identifier">u</span> <span class="identifier">key</span><span class="symbol">:<span class="identifier">secret</span></span>  -<span class="constant">H</span> <span class="constant">Content</span>-<span class="constant">Type</span><span class="symbol">:<span class="identifier">application</span></span>/<span class="identifier">json</span> \
-    <span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USRE32</span>/<span class="identifier">cards</span> \
+    <span class="identifier">https</span><span class="symbol">:</span>/<span class="regexp">/api-sandbox.crowdtilt.com/v</span>1/<span class="identifier">users</span>/<span class="constant">USRE32</span>/<span class="identifier">cards</span> \
     -<span class="identifier">d</span><span class="string">'{
         "card" : {
             "number" : "4111111111111111",
@@ -2095,7 +2095,7 @@ second user to make a payment on the campaign.
 
 </p>
 <pre><code>$ curl -X POST -u key:secret  -H Content-Type:application/json \
-    https:<span class="comment">//api.crowdtilt.com/v1/campaings/CMP542/payments \</span>
+    https:<span class="comment">//api-sandbox.crowdtilt.com/v1/campaings/CMP542/payments \</span>
     -d<span class="string">'{
         "payment" : {
             "user_id" : "USRE32",
@@ -2128,7 +2128,7 @@ second user to make a payment on the campaign.
              <span class="string">"last_login_date"</span> : <span class="string">"2012-11-01T13:56:19.964087000Z"</span>,
              <span class="string">"lastname"</span> : <span class="string">""</span>,
              <span class="string">"payments_uri"</span> : <span class="string">"/v1/users/USRE32/payments"</span>,
-             <span class="string">"is_verified"</span> : <span class="number">0</span>
+         <span class="string">"is_verified"</span> : <span class="number">0</span>
           },
           <span class="string">"metadata"</span> : {},
           <span class="string">"id"</span> : <span class="string">"CMP542"</span>,
@@ -2136,7 +2136,7 @@ second user to make a payment on the campaign.
           <span class="string">"settlements_uri"</span> : <span class="string">"/v1/campaigns/CMP542"</span>,
           <span class="string">"privacy"</span> : <span class="number">1</span>,
           <span class="string">"admin"</span> : {
-             <span class="string">"firstname"</span> : <span class="string">""</span>,
+         <span class="string">"firstname"</span> : <span class="string">""</span>,
              <span class="string">"paid_campaigns_uri"</span> : <span class="string">"/v1/users/USRC55/paid_campaigns"</span>,
              <span class="string">"img"</span> : <span class="keyword">null</span>,
              <span class="string">"email"</span> : <span class="string">"user@gmail.com"</span>,
