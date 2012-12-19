@@ -139,7 +139,7 @@ ready to use the API.  Remember that all API requests have to go over SSL.
 To help you build your application, we provide a sandbox environment that you
 can use for testing. Use the base URI below:
 
-    https://api-sandbox.crowdtilt.com/v1/
+    https://api-sandbox.crowdtilt.com/v1
 
 The sandbox environment will be configured with a free Balanced account. If
 you need support for a different payment processor, please
@@ -151,7 +151,7 @@ you need support for a different payment processor, please
 We are big fans of simplicity. Therefore, we support ``Basic Authentication``
 over SSL. You can simply use ``curl`` to test our API in 2 seconds.
 
-    $ curl -u API_KEY:API_SECRET https://api.crowdtilt.com/v1
+    $ curl -u API_KEY:API_SECRET https://api-sandbox.crowdtilt.com/v1
 
 If the credentials provided were invalid, the API will respond with
 
@@ -307,7 +307,7 @@ branch.
     POST /users
 
     $ curl -X POST -H Content-Type:application/json \
-    -u key:secret https://api.crowdtilt.com/v1/users \
+    -u key:secret https://api-sandbox.crowdtilt.com/v1/users \
     -d'
     {
        "user" : {
@@ -368,7 +368,7 @@ will be set to 1 to reflect this change.
     POST /users/:id/verification
 
     $ curl -X POST -H Content-Type:application/json -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5 \
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5 \
     -d'
     {
        "verification" : {
@@ -424,7 +424,7 @@ password, as query parameters.
     GET  /users/:id
 
     $ curl -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5
 
 #### Response Body
 
@@ -455,7 +455,7 @@ password, as query parameters.
 
     GET /users
 
-    $ curl -u key:secret https://api.crowdtilt.com/v1/users
+    $ curl -u key:secret https://api-sandbox.crowdtilt.com/v1/users
 
 #### Response Body
 
@@ -502,7 +502,7 @@ to update a single attribute without having to send the full
     PUT /users/:id
 
     $ curl -X PUT -HContent-Type:application/json -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5 \
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5 \
     -d'
     {
         "user": {
@@ -545,7 +545,7 @@ campaigns that he paid for.
     GET /users/:id/campaigns
 
     $ curl -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5/campaigns
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5/campaigns
 
 #### Response Body
 
@@ -601,7 +601,7 @@ This resource returns a specific campaign created by this user.
     GET /users/:id/campaigns/:id
 
     $ curl -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5/campaigns/CMP96B
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5/campaigns/CMP96B
 
 #### Response Body
 
@@ -651,7 +651,7 @@ This resource returns all the campaigns that the user paid for.
     GET /users/:id/paid_campaigns
 
     $ curl -u key:secret \
-    https://api.crowdtilt.com/v1/users/USREC5/campaigns/CMP96B
+    https://api-sandbox.crowdtilt.com/v1/users/USREC5/campaigns/CMP96B
 
 #### Response Body
 
@@ -706,7 +706,7 @@ This resource returns all the campaigns that the user paid for.
     POST /users/:id/cards
 
     $ curl -X POST -u key:secret -H Content-Type:application/json\
-    https://api.crowdtilt.com/v1/users/USR50A/cards\
+    https://api-sandbox.crowdtilt.com/v1/users/USR50A/cards\
     -d'
     {
         "card": {
@@ -747,7 +747,7 @@ This resource returns all the campaigns that the user paid for.
     GET /users/:id/cards/:id
 
     $ curl -u key:secret \
-    https://api.crowdtilt.com/v1/users/USR50A/cards/CCP6D6
+    https://api-sandbox.crowdtilt.com/v1/users/USR50A/cards/CCP6D6
 
 #### Response Body
 
@@ -1525,7 +1525,7 @@ refund subresource.
     POST /campaigns/:id/payments/:id/refund
 
     $ curl -X POST -u key:secret \
-    https://api.crowdtilt.com/v1/campaigns/CMP96B/payments/CON233/refund
+    https://api-sandbox.crowdtilt.com/v1/campaigns/CMP96B/payments/CON233/refund
 
 #### Response Codes
 
@@ -1770,7 +1770,7 @@ create two users, an admin, and a contributor.
 
     # Create the admin user
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        https://api.crowdtilt.com/v1/users \
+        https://api-sandbox.crowdtilt.com/v1/users \
         -d'{
             "user":{
                 "email" : "user@gmail.com"
@@ -1797,7 +1797,7 @@ create two users, an admin, and a contributor.
 
      # Create the paying user
      $ curl -X POST -u key:secret  -H Content-Type:application/json \
-         https://api.crowdtilt.com/v1/users \
+         https://api-sandbox.crowdtilt.com/v1/users \
          -d'{
              "user":{
                  "email" : "payer@gmail.com"
@@ -1829,7 +1829,7 @@ example, we'll make the first user created above the `admin` user, and use the
 second user to make a payment on the campaign.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        https://api.crowdtilt.com/v1/campaigns \
+        https://api-sandbox.crowdtilt.com/v1/campaigns \
         -d'{
             "campaign" : {
                 "user_id" : "USRC55",
@@ -1895,7 +1895,7 @@ second user to make a payment on the campaign.
 Now, we'll create a credit card for the paying user.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        https://api.crowdtilt.com/v1/users/USRE32/cards \
+        https://api-sandbox.crowdtilt.com/v1/users/USRE32/cards \
         -d'{
             "card" : {
                 "number" : "4111111111111111",
@@ -1924,7 +1924,7 @@ Now, we'll create a credit card for the paying user.
 Now we'll create a payment by the paying user to the campaign we created.
 
     $ curl -X POST -u key:secret  -H Content-Type:application/json \
-        https://api.crowdtilt.com/v1/campaings/CMP542/payments \
+        https://api-sandbox.crowdtilt.com/v1/campaings/CMP542/payments \
         -d'{
             "payment" : {
                 "user_id" : "USRE32",
